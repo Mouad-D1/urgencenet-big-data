@@ -1,0 +1,349 @@
+{
+  "events_rows": 50001,
+  "facilities_rows": 40,
+  "null_event_time": 0,
+  "wait_by_city": [
+    {
+      "city": "Casablanca",
+      "prises_en_charge": 4334,
+      "attente_moyenne": 37.44785417628057
+    },
+    {
+      "city": "Marrakech",
+      "prises_en_charge": 3142,
+      "attente_moyenne": 37.66995544239338
+    },
+    {
+      "city": "Rabat",
+      "prises_en_charge": 3091,
+      "attente_moyenne": 37.219346489809126
+    },
+    {
+      "city": "Tanger",
+      "prises_en_charge": 1929,
+      "attente_moyenne": 37.431311560393986
+    }
+  ],
+  "api_equals_sql": true,
+  "api_sql_same_plan": true,
+  "care_by_type_city_raw": [
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Casablanca",
+      "prises_en_charge": 499,
+      "attente_moyenne": 37.33
+    },
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Marrakech",
+      "prises_en_charge": 377,
+      "attente_moyenne": 36.88
+    },
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Rabat",
+      "prises_en_charge": 353,
+      "attente_moyenne": 39.76
+    },
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Tanger",
+      "prises_en_charge": 236,
+      "attente_moyenne": 39.41
+    },
+    {
+      "type": "CHU",
+      "city": "Casablanca",
+      "prises_en_charge": 1308,
+      "attente_moyenne": 37.91
+    },
+    {
+      "type": "CHU",
+      "city": "Marrakech",
+      "prises_en_charge": 809,
+      "attente_moyenne": 37.65
+    },
+    {
+      "type": "CHU",
+      "city": "Rabat",
+      "prises_en_charge": 790,
+      "attente_moyenne": 35.6
+    },
+    {
+      "type": "CHU",
+      "city": "Tanger",
+      "prises_en_charge": 851,
+      "attente_moyenne": 37.3
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Casablanca",
+      "prises_en_charge": 1157,
+      "attente_moyenne": 37.0
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Marrakech",
+      "prises_en_charge": 1126,
+      "attente_moyenne": 37.82
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Rabat",
+      "prises_en_charge": 993,
+      "attente_moyenne": 37.16
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Tanger",
+      "prises_en_charge": 470,
+      "attente_moyenne": 36.63
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Casablanca",
+      "prises_en_charge": 1370,
+      "attente_moyenne": 37.43
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Marrakech",
+      "prises_en_charge": 830,
+      "attente_moyenne": 37.84
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Rabat",
+      "prises_en_charge": 955,
+      "attente_moyenne": 37.68
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Tanger",
+      "prises_en_charge": 372,
+      "attente_moyenne": 37.48
+    }
+  ],
+  "bands_raw": [
+    {
+      "wait_band": null,
+      "count": 37505
+    },
+    {
+      "wait_band": "court",
+      "count": 1842
+    },
+    {
+      "wait_band": "long",
+      "count": 3932
+    },
+    {
+      "wait_band": "moyen",
+      "count": 6722
+    }
+  ],
+  "udf_equals_native": true,
+  "benchmark_band_udf_seconds": {
+    "runs": [
+      0.732,
+      0.643,
+      0.61,
+      0.607,
+      0.754
+    ],
+    "median": 0.643
+  },
+  "benchmark_band_native_seconds": {
+    "runs": [
+      0.4,
+      0.411,
+      0.44,
+      0.357,
+      0.628
+    ],
+    "median": 0.411
+  },
+  "rows_before_dedup": 50001,
+  "rows_after_dedup": 49028,
+  "duplicates_removed": 973,
+  "dedup_by_status": [
+    {
+      "status": "ARRIVED",
+      "avant": 12510,
+      "apres": 12257
+    },
+    {
+      "status": "CARE_STARTED",
+      "avant": 12496,
+      "apres": 12257
+    },
+    {
+      "status": "DISCHARGED",
+      "avant": 11334,
+      "apres": 11099
+    },
+    {
+      "status": "TRANSFERRED",
+      "avant": 1179,
+      "apres": 1158
+    },
+    {
+      "status": "TRIAGED",
+      "avant": 12482,
+      "apres": 12257
+    }
+  ],
+  "self_join_rows_with_duplicates": 12751,
+  "self_join_rows": 12257,
+  "care_started_after_dedup": 12257,
+  "wait_mismatches": 0,
+  "wait_compare": [
+    {
+      "city": "Casablanca",
+      "attente_recalculee": 37.4534,
+      "attente_champ": 37.4534
+    },
+    {
+      "city": "Marrakech",
+      "attente_recalculee": 37.6032,
+      "attente_champ": 37.6032
+    },
+    {
+      "city": "Rabat",
+      "attente_recalculee": 37.2692,
+      "attente_champ": 37.2692
+    },
+    {
+      "city": "Tanger",
+      "attente_recalculee": 37.4041,
+      "attente_champ": 37.4041
+    }
+  ],
+  "care_by_type_city_clean": [
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Casablanca",
+      "prises_en_charge": 488,
+      "attente_moyenne": 37.32
+    },
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Marrakech",
+      "prises_en_charge": 367,
+      "attente_moyenne": 36.8
+    },
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Rabat",
+      "prises_en_charge": 348,
+      "attente_moyenne": 40.02
+    },
+    {
+      "type": "CENTRE_SANTE",
+      "city": "Tanger",
+      "prises_en_charge": 232,
+      "attente_moyenne": 39.34
+    },
+    {
+      "type": "CHU",
+      "city": "Casablanca",
+      "prises_en_charge": 1281,
+      "attente_moyenne": 37.95
+    },
+    {
+      "type": "CHU",
+      "city": "Marrakech",
+      "prises_en_charge": 795,
+      "attente_moyenne": 37.69
+    },
+    {
+      "type": "CHU",
+      "city": "Rabat",
+      "prises_en_charge": 779,
+      "attente_moyenne": 35.67
+    },
+    {
+      "type": "CHU",
+      "city": "Tanger",
+      "prises_en_charge": 833,
+      "attente_moyenne": 37.2
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Casablanca",
+      "prises_en_charge": 1134,
+      "attente_moyenne": 36.99
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Marrakech",
+      "prises_en_charge": 1106,
+      "attente_moyenne": 37.73
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Rabat",
+      "prises_en_charge": 974,
+      "attente_moyenne": 37.25
+    },
+    {
+      "type": "CLINIQUE",
+      "city": "Tanger",
+      "prises_en_charge": 463,
+      "attente_moyenne": 36.71
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Casablanca",
+      "prises_en_charge": 1345,
+      "attente_moyenne": 37.43
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Marrakech",
+      "prises_en_charge": 814,
+      "attente_moyenne": 37.71
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Rabat",
+      "prises_en_charge": 938,
+      "attente_moyenne": 37.6
+    },
+    {
+      "type": "HOPITAL_REGIONAL",
+      "city": "Tanger",
+      "prises_en_charge": 360,
+      "attente_moyenne": 37.52
+    }
+  ],
+  "silver_rows": 49028,
+  "silver_by_city": [
+    {
+      "city": "Casablanca",
+      "count": 16992
+    },
+    {
+      "city": "Marrakech",
+      "count": 12328
+    },
+    {
+      "city": "Rabat",
+      "count": 12156
+    },
+    {
+      "city": "Tanger",
+      "count": 7552
+    }
+  ],
+  "benchmark_average_wait_seconds": {
+    "runs": [
+      0.599,
+      0.622,
+      0.586,
+      0.597,
+      0.691
+    ],
+    "median": 0.599
+  }
+}

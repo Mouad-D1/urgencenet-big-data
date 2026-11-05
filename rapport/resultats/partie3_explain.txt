@@ -1,0 +1,134 @@
+=== explain(True) de la jointure evenements / etablissements
+== Parsed Logical Plan ==
+'Sort ['type ASC NULLS FIRST, 'city ASC NULLS FIRST], true
++- Aggregate [type#26, city#3], [type#26, city#3, count(1) AS prises_en_charge#212L, round(avg(wait_minutes#6), 2) AS attente_moyenne#214]
+   +- Filter (status#4 = CARE_STARTED)
+      +- Project [facility_id#2, visit_id#0, patient_id#1, city#3, status#4, priority#5, wait_minutes#6, department#7, desk_id#8, transfer_to#9, event_time#10, type#26]
+         +- Join Inner, (facility_id#2 = facility_id#22)
+            :- Relation [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] json
+            +- Project [facility_id#22, type#26]
+               +- Relation [facility_id#22,name#23,city#24,hospital_group#25,type#26,beds#27,latitude#28,longitude#29] json
+
+== Analyzed Logical Plan ==
+type: string, city: string, prises_en_charge: bigint, attente_moyenne: double
+Sort [type#26 ASC NULLS FIRST, city#3 ASC NULLS FIRST], true
++- Aggregate [type#26, city#3], [type#26, city#3, count(1) AS prises_en_charge#212L, round(avg(wait_minutes#6), 2) AS attente_moyenne#214]
+   +- Filter (status#4 = CARE_STARTED)
+      +- Project [facility_id#2, visit_id#0, patient_id#1, city#3, status#4, priority#5, wait_minutes#6, department#7, desk_id#8, transfer_to#9, event_time#10, type#26]
+         +- Join Inner, (facility_id#2 = facility_id#22)
+            :- Relation [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] json
+            +- Project [facility_id#22, type#26]
+               +- Relation [facility_id#22,name#23,city#24,hospital_group#25,type#26,beds#27,latitude#28,longitude#29] json
+
+== Optimized Logical Plan ==
+Sort [type#26 ASC NULLS FIRST, city#3 ASC NULLS FIRST], true
++- Aggregate [type#26, city#3], [type#26, city#3, count(1) AS prises_en_charge#212L, round(avg(wait_minutes#6), 2) AS attente_moyenne#214]
+   +- Project [city#3, wait_minutes#6, type#26]
+      +- Join Inner, (facility_id#2 = facility_id#22)
+         :- Project [facility_id#2, city#3, wait_minutes#6]
+         :  +- Filter ((isnotnull(status#4) AND (status#4 = CARE_STARTED)) AND isnotnull(facility_id#2))
+         :     +- Relation [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] json
+         +- Project [facility_id#22, type#26]
+            +- Filter isnotnull(facility_id#22)
+               +- Relation [facility_id#22,name#23,city#24,hospital_group#25,type#26,beds#27,latitude#28,longitude#29] json
+
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=true
++- == Final Plan ==
+   *(4) Sort [type#26 ASC NULLS FIRST, city#3 ASC NULLS FIRST], true, 0
+   +- AQEShuffleRead coalesced
+      +- ShuffleQueryStage 2
+         +- Exchange rangepartitioning(type#26 ASC NULLS FIRST, city#3 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=739]
+            +- *(3) HashAggregate(keys=[type#26, city#3], functions=[count(1), avg(wait_minutes#6)], output=[type#26, city#3, prises_en_charge#212L, attente_moyenne#214])
+               +- AQEShuffleRead coalesced
+                  +- ShuffleQueryStage 1
+                     +- Exchange hashpartitioning(type#26, city#3, 200), ENSURE_REQUIREMENTS, [plan_id=703]
+                        +- *(2) HashAggregate(keys=[type#26, city#3], functions=[partial_count(1), partial_avg(wait_minutes#6)], output=[type#26, city#3, count#234L, sum#235, count#236L])
+                           +- *(2) Project [city#3, wait_minutes#6, type#26]
+                              +- *(2) BroadcastHashJoin [facility_id#2], [facility_id#22], Inner, BuildRight, false
+                                 :- *(2) Project [facility_id#2, city#3, wait_minutes#6]
+                                 :  +- *(2) Filter ((isnotnull(status#4) AND (status#4 = CARE_STARTED)) AND isnotnull(facility_id#2))
+                                 :     +- FileScan json [facility_id#2,city#3,status#4,wait_minutes#6] Batched: false, DataFilters: [isnotnull(status#4), (status#4 = CARE_STARTED), isnotnull(facility_id#2)], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/history], PartitionFilters: [], PushedFilters: [IsNotNull(status), EqualTo(status,CARE_STARTED), IsNotNull(facility_id)], ReadSchema: struct<facility_id:string,city:string,status:string,wait_minutes:int>
+                                 +- BroadcastQueryStage 0
+                                    +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=644]
+                                       +- *(1) Filter isnotnull(facility_id#22)
+                                          +- FileScan json [facility_id#22,type#26] Batched: false, DataFilters: [isnotnull(facility_id#22)], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/facilities], PartitionFilters: [], PushedFilters: [IsNotNull(facility_id)], ReadSchema: struct<facility_id:string,type:string>
++- == Initial Plan ==
+   Sort [type#26 ASC NULLS FIRST, city#3 ASC NULLS FIRST], true, 0
+   +- Exchange rangepartitioning(type#26 ASC NULLS FIRST, city#3 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=618]
+      +- HashAggregate(keys=[type#26, city#3], functions=[count(1), avg(wait_minutes#6)], output=[type#26, city#3, prises_en_charge#212L, attente_moyenne#214])
+         +- Exchange hashpartitioning(type#26, city#3, 200), ENSURE_REQUIREMENTS, [plan_id=615]
+            +- HashAggregate(keys=[type#26, city#3], functions=[partial_count(1), partial_avg(wait_minutes#6)], output=[type#26, city#3, count#234L, sum#235, count#236L])
+               +- Project [city#3, wait_minutes#6, type#26]
+                  +- BroadcastHashJoin [facility_id#2], [facility_id#22], Inner, BuildRight, false
+                     :- Project [facility_id#2, city#3, wait_minutes#6]
+                     :  +- Filter ((isnotnull(status#4) AND (status#4 = CARE_STARTED)) AND isnotnull(facility_id#2))
+                     :     +- FileScan json [facility_id#2,city#3,status#4,wait_minutes#6] Batched: false, DataFilters: [isnotnull(status#4), (status#4 = CARE_STARTED), isnotnull(facility_id#2)], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/history], PartitionFilters: [], PushedFilters: [IsNotNull(status), EqualTo(status,CARE_STARTED), IsNotNull(facility_id)], ReadSchema: struct<facility_id:string,city:string,status:string,wait_minutes:int>
+                     +- BroadcastExchange HashedRelationBroadcastMode(List(input[0, string, false]),false), [plan_id=610]
+                        +- Filter isnotnull(facility_id#22)
+                           +- FileScan json [facility_id#22,type#26] Batched: false, DataFilters: [isnotnull(facility_id#22)], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/facilities], PartitionFilters: [], PushedFilters: [IsNotNull(facility_id)], ReadSchema: struct<facility_id:string,type:string>
+
+
+=== Plan physique avec UDF
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=true
++- == Final Plan ==
+   *(3) Sort [wait_band#628 ASC NULLS FIRST], true, 0
+   +- AQEShuffleRead coalesced
+      +- ShuffleQueryStage 2
+         +- Exchange rangepartitioning(wait_band#628 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=1020]
+            +- *(2) HashAggregate(keys=[wait_band#628], functions=[count(1)])
+               +- AQEShuffleRead coalesced
+                  +- ShuffleQueryStage 1
+                     +- Exchange hashpartitioning(wait_band#628, 200), ENSURE_REQUIREMENTS, [plan_id=991]
+                        +- *(1) HashAggregate(keys=[wait_band#628], functions=[partial_count(1)])
+                           +- *(1) Project [pythonUDF0#1083 AS wait_band#628]
+                              +- BatchEvalPython [wait_band(wait_minutes#6)#627], [pythonUDF0#1083]
+                                 +- TableCacheQueryStage 0
+                                    +- InMemoryTableScan [wait_minutes#6]
+                                          +- InMemoryRelation [visit_id#0, patient_id#1, facility_id#2, city#3, status#4, priority#5, wait_minutes#6, department#7, desk_id#8, transfer_to#9, event_time#10], StorageLevel(disk, memory, deserialized, 1 replicas)
+                                                +- FileScan json [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] Batched: false, DataFilters: [], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/history], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<visit_id:string,patient_id:string,facility_id:string,city:string,status:string,priority:in...
++- == Initial Plan ==
+   Sort [wait_band#628 ASC NULLS FIRST], true, 0
+   +- Exchange rangepartitioning(wait_band#628 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=932]
+      +- HashAggregate(keys=[wait_band#628], functions=[count(1)])
+         +- Exchange hashpartitioning(wait_band#628, 200), ENSURE_REQUIREMENTS, [plan_id=929]
+            +- HashAggregate(keys=[wait_band#628], functions=[partial_count(1)])
+               +- Project [pythonUDF0#1083 AS wait_band#628]
+                  +- BatchEvalPython [wait_band(wait_minutes#6)#627], [pythonUDF0#1083]
+                     +- InMemoryTableScan [wait_minutes#6]
+                           +- InMemoryRelation [visit_id#0, patient_id#1, facility_id#2, city#3, status#4, priority#5, wait_minutes#6, department#7, desk_id#8, transfer_to#9, event_time#10], StorageLevel(disk, memory, deserialized, 1 replicas)
+                                 +- FileScan json [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] Batched: false, DataFilters: [], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/history], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<visit_id:string,patient_id:string,facility_id:string,city:string,status:string,priority:in...
+
+
+
+=== Plan physique avec when/otherwise
+== Physical Plan ==
+AdaptiveSparkPlan isFinalPlan=true
++- == Final Plan ==
+   *(3) Sort [wait_band#657 ASC NULLS FIRST], true, 0
+   +- AQEShuffleRead coalesced
+      +- ShuffleQueryStage 2
+         +- Exchange rangepartitioning(wait_band#657 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=1135]
+            +- *(2) HashAggregate(keys=[wait_band#657], functions=[count(1)])
+               +- AQEShuffleRead coalesced
+                  +- ShuffleQueryStage 1
+                     +- Exchange hashpartitioning(wait_band#657, 200), ENSURE_REQUIREMENTS, [plan_id=1107]
+                        +- *(1) HashAggregate(keys=[wait_band#657], functions=[partial_count(1)])
+                           +- *(1) Project [CASE WHEN (wait_minutes#6 < 15) THEN court WHEN (wait_minutes#6 <= 45) THEN moyen WHEN (wait_minutes#6 > 45) THEN long END AS wait_band#657]
+                              +- TableCacheQueryStage 0
+                                 +- InMemoryTableScan [wait_minutes#6]
+                                       +- InMemoryRelation [visit_id#0, patient_id#1, facility_id#2, city#3, status#4, priority#5, wait_minutes#6, department#7, desk_id#8, transfer_to#9, event_time#10], StorageLevel(disk, memory, deserialized, 1 replicas)
+                                             +- FileScan json [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] Batched: false, DataFilters: [], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/history], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<visit_id:string,patient_id:string,facility_id:string,city:string,status:string,priority:in...
++- == Initial Plan ==
+   Sort [wait_band#657 ASC NULLS FIRST], true, 0
+   +- Exchange rangepartitioning(wait_band#657 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=1059]
+      +- HashAggregate(keys=[wait_band#657], functions=[count(1)])
+         +- Exchange hashpartitioning(wait_band#657, 200), ENSURE_REQUIREMENTS, [plan_id=1056]
+            +- HashAggregate(keys=[wait_band#657], functions=[partial_count(1)])
+               +- Project [CASE WHEN (wait_minutes#6 < 15) THEN court WHEN (wait_minutes#6 <= 45) THEN moyen WHEN (wait_minutes#6 > 45) THEN long END AS wait_band#657]
+                  +- InMemoryTableScan [wait_minutes#6]
+                        +- InMemoryRelation [visit_id#0, patient_id#1, facility_id#2, city#3, status#4, priority#5, wait_minutes#6, department#7, desk_id#8, transfer_to#9, event_time#10], StorageLevel(disk, memory, deserialized, 1 replicas)
+                              +- FileScan json [visit_id#0,patient_id#1,facility_id#2,city#3,status#4,priority#5,wait_minutes#6,department#7,desk_id#8,transfer_to#9,event_time#10] Batched: false, DataFilters: [], Format: JSON, Location: InMemoryFileIndex(1 paths)[s3a://lake/bronze/history], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<visit_id:string,patient_id:string,facility_id:string,city:string,status:string,priority:in...
+
+

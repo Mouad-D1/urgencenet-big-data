@@ -79,6 +79,10 @@ docker compose exec mc mc cp /data/urgences_history.jsonl local/lake/bronze/hist
 ```
 
 ```bash
+docker compose exec mc mc cp /data/facilities.json local/lake/bronze/facilities/facilities.json
+```
+
+```bash
 docker compose exec jupyter python3 producer.py --mode kafka --rate 20
 ```
 
@@ -99,6 +103,20 @@ docker compose exec jupyter spark-submit spark/partie2_rdd.py --hold 600
 
 `--hold 600` garde l'application active 10 minutes pour consulter le DAG sur http://localhost:4040.
 Les résultats et les temps sont écrits dans `rapport/resultats/partie2.json`.
+
+## Partie 3 : Spark SQL et DataFrames
+
+```bash
+docker compose exec jupyter spark-submit spark/partie3_sql.py --hold 600
+```
+
+Le script écrit la couche Silver dans `lake/silver/urgences_history/`, les résultats dans
+`rapport/resultats/partie3.json` et les plans dans `rapport/resultats/partie3_explain.txt`.
+Pour le vérifier :
+
+```bash
+docker compose exec mc mc ls --recursive local/lake/silver/
+```
 
 ## Arrêt
 
