@@ -1,0 +1,13 @@
+# Donnees generees par producer.py --mode file (reproductibles avec --seed)
+data/urgences_history.jsonl
+data/anomalies_ground_truth.json
+
+# Sujet du projet
+BigDataminiProjectUrgenceMa.pdf
+
+.env
+.ipynb_checkpoints/
+__pycache__/
+spark-warehouse/
+metastore_db/
+derby.log

@@ -1,0 +1,153 @@
+# UrgenceNet.ma - environnement Big Data (Partie 1)
+# Tous les ports sont publies sur 127.0.0.1 uniquement : environnement local, sans authentification Jupyter.
+name: urgencenet
+
+x-spark-image: &spark-image
+  build: ./docker/spark
+  image: urgencenet/spark:3.5.7
+
+x-s3-credentials: &s3-credentials
+  AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minioadmin}
+  AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minioadmin}
+
+services:
+  kafka:
+    image: apache/kafka:3.9.1
+    hostname: kafka
+    environment:
+      CLUSTER_ID: 5L6g3nShT-eMCtK--X86sw
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL://:9094,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
+    ports:
+      - "127.0.0.1:9094:9094"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-topics.sh --bootstrap-server kafka:9092 --list"]
+      interval: 10s
+      timeout: 15s
+      retries: 12
+      start_period: 15s
+
+  kafka-init:
+    image: apache/kafka:3.9.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    command:
+      - /opt/kafka/bin/kafka-topics.sh
+      - --bootstrap-server=kafka:9092
+      - --create
+      - --if-not-exists
+      - --topic=urgences
+      - --partitions=3
+      - --replication-factor=1
+    restart: "no"
+
+  minio:
+    image: bitnamilegacy/minio:2025.4.22
+    hostname: minio
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minioadmin}
+      MINIO_CONSOLE_PORT_NUMBER: 9001
+    ports:
+      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
+    volumes:
+      - minio-data:/bitnami/minio/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # Client MinIO : cree le bucket lake puis reste disponible pour `mc ls`, `mc cp`...
+  mc:
+    image: bitnamilegacy/minio-client:2025.4.16
+    init: true
+    depends_on:
+      minio:
+        condition: service_healthy
+    environment:
+      HOME: /tmp
+      MC_HOST_local: http://${MINIO_ROOT_USER:-minioadmin}:${MINIO_ROOT_PASSWORD:-minioadmin}@minio:9000
+    volumes:
+      - ./data:/data:ro
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["mc mb --ignore-existing local/lake && exec tail -f /dev/null"]
+
+  spark-master:
+    <<: *spark-image
+    hostname: spark-master
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.master.Master", "--host", "spark-master", "--port", "7077", "--webui-port", "8080"]
+    ports:
+      - "127.0.0.1:${SPARK_MASTER_UI_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/spark-master/7077'"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  spark-worker-1:
+    <<: *spark-image
+    hostname: spark-worker-1
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    environment:
+      <<: *s3-credentials
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077", "--cores", "2", "--memory", "2g", "--webui-port", "8081"]
+    ports:
+      - "127.0.0.1:8081:8081"
+
+  spark-worker-2:
+    <<: *spark-image
+    hostname: spark-worker-2
+    depends_on:
+      spark-master:
+        condition: service_healthy
+    environment:
+      <<: *s3-credentials
+    command: ["/opt/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark-master:7077", "--cores", "2", "--memory", "2g", "--webui-port", "8081"]
+    ports:
+      - "127.0.0.1:8082:8081"
+
+  # Le Driver PySpark tourne ici (notebooks et spark-submit) : memes versions que les Workers.
+  jupyter:
+    <<: *spark-image
+    hostname: jupyter
+    depends_on:
+      spark-master:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+      mc:
+        condition: service_started
+    environment:
+      <<: *s3-credentials
+    working_dir: /workspace
+    command: ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--ServerApp.root_dir=/workspace", "--IdentityProvider.token=", "--ServerApp.password="]
+    ports:
+      - "127.0.0.1:8888:8888"
+      - "127.0.0.1:4040:4040"
+      - "127.0.0.1:4041:4041"
+    volumes:
+      - .:/workspace
+
+volumes:
+  kafka-data:
+  minio-data:

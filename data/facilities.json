@@ -1,0 +1,40 @@
+{"facility_id": "F-001", "name": "CHU UrgenceNet Casablanca-1", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CHU", "beds": 721, "latitude": 33.55144, "longitude": -7.53564}
+{"facility_id": "F-002", "name": "CHU UrgenceNet Casablanca-2", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CHU", "beds": 705, "latitude": 33.61919, "longitude": -7.54242}
+{"facility_id": "F-003", "name": "Hôpital régional UrgenceNet Casablanca-1", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "HOPITAL_REGIONAL", "beds": 359, "latitude": 33.57989, "longitude": -7.5558}
+{"facility_id": "F-004", "name": "Hôpital régional UrgenceNet Casablanca-2", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "HOPITAL_REGIONAL", "beds": 340, "latitude": 33.61419, "longitude": -7.55661}
+{"facility_id": "F-005", "name": "Hôpital régional UrgenceNet Casablanca-3", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "HOPITAL_REGIONAL", "beds": 325, "latitude": 33.60322, "longitude": -7.57942}
+{"facility_id": "F-006", "name": "Clinique UrgenceNet Casablanca-1", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CLINIQUE", "beds": 70, "latitude": 33.5134, "longitude": -7.64011}
+{"facility_id": "F-007", "name": "Clinique UrgenceNet Casablanca-2", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CLINIQUE", "beds": 76, "latitude": 33.61111, "longitude": -7.59584}
+{"facility_id": "F-008", "name": "Clinique UrgenceNet Casablanca-3", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CLINIQUE", "beds": 144, "latitude": 33.62002, "longitude": -7.59097}
+{"facility_id": "F-009", "name": "Clinique UrgenceNet Casablanca-4", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CLINIQUE", "beds": 80, "latitude": 33.53833, "longitude": -7.61962}
+{"facility_id": "F-010", "name": "Clinique UrgenceNet Casablanca-5", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CLINIQUE", "beds": 85, "latitude": 33.60972, "longitude": -7.52984}
+{"facility_id": "F-011", "name": "Centre de santé UrgenceNet Casablanca-1", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CENTRE_SANTE", "beds": 24, "latitude": 33.58963, "longitude": -7.56303}
+{"facility_id": "F-012", "name": "Centre de santé UrgenceNet Casablanca-2", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CENTRE_SANTE", "beds": 10, "latitude": 33.57999, "longitude": -7.61475}
+{"facility_id": "F-013", "name": "Centre de santé UrgenceNet Casablanca-3", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CENTRE_SANTE", "beds": 22, "latitude": 33.53001, "longitude": -7.57242}
+{"facility_id": "F-014", "name": "Centre de santé UrgenceNet Casablanca-4", "city": "Casablanca", "hospital_group": "GHT-Atlantique", "type": "CENTRE_SANTE", "beds": 30, "latitude": 33.58239, "longitude": -7.64683}
+{"facility_id": "F-015", "name": "CHU UrgenceNet Rabat-1", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CHU", "beds": 977, "latitude": 34.00453, "longitude": -6.85093}
+{"facility_id": "F-016", "name": "Hôpital régional UrgenceNet Rabat-1", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "HOPITAL_REGIONAL", "beds": 302, "latitude": 34.06782, "longitude": -6.83507}
+{"facility_id": "F-017", "name": "Hôpital régional UrgenceNet Rabat-2", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "HOPITAL_REGIONAL", "beds": 422, "latitude": 33.97487, "longitude": -6.84084}
+{"facility_id": "F-018", "name": "Clinique UrgenceNet Rabat-1", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CLINIQUE", "beds": 136, "latitude": 34.06491, "longitude": -6.79655}
+{"facility_id": "F-019", "name": "Clinique UrgenceNet Rabat-2", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CLINIQUE", "beds": 90, "latitude": 34.07091, "longitude": -6.87056}
+{"facility_id": "F-020", "name": "Clinique UrgenceNet Rabat-3", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CLINIQUE", "beds": 93, "latitude": 34.02858, "longitude": -6.78373}
+{"facility_id": "F-021", "name": "Clinique UrgenceNet Rabat-4", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CLINIQUE", "beds": 105, "latitude": 34.02306, "longitude": -6.89855}
+{"facility_id": "F-022", "name": "Centre de santé UrgenceNet Rabat-1", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CENTRE_SANTE", "beds": 15, "latitude": 34.0528, "longitude": -6.80342}
+{"facility_id": "F-023", "name": "Centre de santé UrgenceNet Rabat-2", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CENTRE_SANTE", "beds": 30, "latitude": 34.02369, "longitude": -6.82114}
+{"facility_id": "F-024", "name": "Centre de santé UrgenceNet Rabat-3", "city": "Rabat", "hospital_group": "GHT-Nord", "type": "CENTRE_SANTE", "beds": 30, "latitude": 34.03558, "longitude": -6.8452}
+{"facility_id": "F-025", "name": "CHU UrgenceNet Tanger-1", "city": "Tanger", "hospital_group": "GHT-Nord", "type": "CHU", "beds": 1093, "latitude": 35.80562, "longitude": -5.79204}
+{"facility_id": "F-026", "name": "Hôpital régional UrgenceNet Tanger-1", "city": "Tanger", "hospital_group": "GHT-Nord", "type": "HOPITAL_REGIONAL", "beds": 231, "latitude": 35.7747, "longitude": -5.83918}
+{"facility_id": "F-027", "name": "Clinique UrgenceNet Tanger-1", "city": "Tanger", "hospital_group": "GHT-Nord", "type": "CLINIQUE", "beds": 100, "latitude": 35.78524, "longitude": -5.77885}
+{"facility_id": "F-028", "name": "Clinique UrgenceNet Tanger-2", "city": "Tanger", "hospital_group": "GHT-Nord", "type": "CLINIQUE", "beds": 109, "latitude": 35.72962, "longitude": -5.84575}
+{"facility_id": "F-029", "name": "Centre de santé UrgenceNet Tanger-1", "city": "Tanger", "hospital_group": "GHT-Nord", "type": "CENTRE_SANTE", "beds": 17, "latitude": 35.76528, "longitude": -5.81638}
+{"facility_id": "F-030", "name": "Centre de santé UrgenceNet Tanger-2", "city": "Tanger", "hospital_group": "GHT-Nord", "type": "CENTRE_SANTE", "beds": 30, "latitude": 35.75697, "longitude": -5.78787}
+{"facility_id": "F-031", "name": "CHU UrgenceNet Marrakech-1", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CHU", "beds": 1043, "latitude": 31.5938, "longitude": -7.94128}
+{"facility_id": "F-032", "name": "Hôpital régional UrgenceNet Marrakech-1", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "HOPITAL_REGIONAL", "beds": 202, "latitude": 31.57347, "longitude": -7.96242}
+{"facility_id": "F-033", "name": "Hôpital régional UrgenceNet Marrakech-2", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "HOPITAL_REGIONAL", "beds": 352, "latitude": 31.68478, "longitude": -7.94467}
+{"facility_id": "F-034", "name": "Clinique UrgenceNet Marrakech-1", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CLINIQUE", "beds": 102, "latitude": 31.61269, "longitude": -8.01712}
+{"facility_id": "F-035", "name": "Clinique UrgenceNet Marrakech-2", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CLINIQUE", "beds": 128, "latitude": 31.62777, "longitude": -7.97975}
+{"facility_id": "F-036", "name": "Clinique UrgenceNet Marrakech-3", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CLINIQUE", "beds": 145, "latitude": 31.62916, "longitude": -7.98899}
+{"facility_id": "F-037", "name": "Clinique UrgenceNet Marrakech-4", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CLINIQUE", "beds": 124, "latitude": 31.67837, "longitude": -7.94133}
+{"facility_id": "F-038", "name": "Centre de santé UrgenceNet Marrakech-1", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CENTRE_SANTE", "beds": 18, "latitude": 31.62442, "longitude": -7.94367}
+{"facility_id": "F-039", "name": "Centre de santé UrgenceNet Marrakech-2", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CENTRE_SANTE", "beds": 22, "latitude": 31.65222, "longitude": -7.94689}
+{"facility_id": "F-040", "name": "Centre de santé UrgenceNet Marrakech-3", "city": "Marrakech", "hospital_group": "GHT-Sud", "type": "CENTRE_SANTE", "beds": 24, "latitude": 31.60056, "longitude": -7.93046}
