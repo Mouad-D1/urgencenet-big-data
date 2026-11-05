@@ -118,6 +118,15 @@ Pour le vérifier :
 docker compose exec mc mc ls --recursive local/lake/silver/
 ```
 
+## Rapport
+
+`rapport/rapport_jalon1.pdf` se régénère avec la commande suivante, à lancer sous Windows depuis la racine du projet.
+Elle utilise `reportlab` et `Pillow`, les polices Calibri et Consolas, et les chiffres de `rapport/resultats/`.
+
+```bash
+python rapport/build_rapport.py
+```
+
 ## Arrêt
 
 ```bash
