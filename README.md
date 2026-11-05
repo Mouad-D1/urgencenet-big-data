@@ -89,6 +89,17 @@ Options utiles : `--seed` rend la génération reproductible (42 par défaut en 
 En mode `file`, le générateur injecte aussi des cas inhabituels pour la Partie 6 et les décrit dans
 `data/anomalies_ground_truth.json`, ce qui permet de mesurer les faux positifs et les cas manqués.
 
+## Partie 2 : RDD
+
+L'historique doit d'abord être généré et copié en Bronze (section précédente).
+
+```bash
+docker compose exec jupyter spark-submit spark/partie2_rdd.py --hold 600
+```
+
+`--hold 600` garde l'application active 10 minutes pour consulter le DAG sur http://localhost:4040.
+Les résultats et les temps sont écrits dans `rapport/resultats/partie2.json`.
+
 ## Arrêt
 
 ```bash
@@ -105,5 +116,5 @@ docker/spark/             image Spark (jars, dépendances Python, spark-defaults
 producer.py               générateur d'événements (fichier ou Kafka)
 data/facilities.json      référentiel des établissements
 spark/                    traitements PySpark, un script par partie
-rapport/                  notes destinées au rapport PDF
+rapport/                  notes du rapport PDF, captures et résultats mesurés
 ```

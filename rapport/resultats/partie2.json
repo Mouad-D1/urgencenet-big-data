@@ -1,0 +1,90 @@
+{
+  "care_by_city": {
+    "Casablanca": 4334,
+    "Marrakech": 3142,
+    "Rabat": 3091,
+    "Tanger": 1929
+  },
+  "average_wait_by_city": {
+    "Casablanca": 37.4479,
+    "Marrakech": 37.67,
+    "Rabat": 37.2193,
+    "Tanger": 37.4313
+  },
+  "passages_by_priority": {
+    "1": 596,
+    "2": 1886,
+    "3": 4398,
+    "4": 3676,
+    "5": 1926
+  },
+  "top5_facilities": [
+    [
+      "F-025",
+      851
+    ],
+    [
+      "F-031",
+      809
+    ],
+    [
+      "F-015",
+      790
+    ],
+    [
+      "F-001",
+      667
+    ],
+    [
+      "F-002",
+      641
+    ]
+  ],
+  "jobs": {
+    "prises_en_charge_par_ville": {
+      "seconds": 8.749,
+      "jobs": [
+        0
+      ],
+      "stages": 2
+    },
+    "attente_moyenne_par_ville": {
+      "seconds": 1.318,
+      "jobs": [
+        1
+      ],
+      "stages": 2
+    },
+    "passages_par_priorite": {
+      "seconds": 0.981,
+      "jobs": [
+        2
+      ],
+      "stages": 2
+    },
+    "top5_etablissements": {
+      "seconds": 1.097,
+      "jobs": [
+        3
+      ],
+      "stages": 2
+    },
+    "reutilisation_shuffle": {
+      "seconds": 0.422,
+      "jobs": [
+        4
+      ],
+      "stages": 2
+    }
+  },
+  "benchmark_average_wait_seconds": {
+    "runs": [
+      1.445,
+      1.058,
+      1.104,
+      1.193,
+      1.957
+    ],
+    "median": 1.193
+  }
+}
