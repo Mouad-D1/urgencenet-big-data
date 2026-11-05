@@ -39,7 +39,9 @@ Le script attend donc leur enregistrement avant d'afficher la valeur.
    et peut garder les données en mémoire. C'est décisif pour PageRank et les composantes connexes (Partie 6), qui
    répètent des calculs sur le même graphe de transferts.
 
-## Captures à insérer
+## Captures
 
-- Interface Spark Master montrant les 2 Workers actifs.
-- Console MinIO montrant le bucket `lake`.
+- `captures/partie1_spark_master.jpg` : interface Spark Master avec 2 Workers actifs, 4 cœurs et 4 Gio. Le Master écoute
+  sur le port 8080 dans son conteneur. Sur la machine de démonstration, il est publié sur le port 18080, car le 8080
+  y est déjà occupé par un autre service.
+- `captures/partie1_minio_bucket.jpg` : console MinIO avec le bucket `lake`.

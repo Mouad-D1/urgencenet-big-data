@@ -56,7 +56,8 @@ doublon multiplie les correspondances.
 
 973 doublons sont supprimés. Après dédoublonnage, chaque passage a exactement un événement par étape, et DISCHARGED +
 TRANSFERRED = 12 257. Le résultat est écrit dans `lake/silver/urgences_history/`, avec un dossier et un fichier Parquet
-par ville, et relu : 49 028 lignes. Le `repartition("city")` évite de multiplier les petits fichiers.
+par ville, et relu : 49 028 lignes (capture `captures/partie3_minio_silver.jpg`). Le `repartition("city")` évite de
+multiplier les petits fichiers.
 
 Le référentiel `facilities.json` est stocké dans `lake/bronze/facilities/` : ce dossier s'ajoute à l'organisation du
 sujet, car les Workers n'ont pas accès aux fichiers locaux du conteneur Jupyter.
