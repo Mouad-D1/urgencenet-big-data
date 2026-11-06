@@ -118,6 +118,28 @@ Pour le vérifier :
 docker compose exec mc mc ls --recursive local/lake/silver/
 ```
 
+## Partie 4 : Structured Streaming
+
+Dans un premier terminal, lancer les requêtes (arrêt par Ctrl+C) :
+
+```bash
+docker compose exec jupyter spark-submit spark/partie4_streaming.py
+```
+
+Dans un second terminal, lancer le producteur :
+
+```bash
+docker compose exec jupyter python3 producer.py --mode kafka --rate 20 --log-late 10
+```
+
+Les micro-batches s'affichent dans le premier terminal et sur http://localhost:4040/StreamingQuery/.
+Les messages arrivent dans `lake/bronze/urgences_raw/`, et chaque requête reprend à son checkpoint après un arrêt.
+
+Pour reproduire l'analyse du watermark, recréer d'abord un topic vide, puis lancer le script avec
+`--duration 545 --reset` et le producteur avec `--duration 480`. Le producteur doit s'arrêter avant le script.
+`--reset` supprime les checkpoints de cette partie et le dossier `urgences_raw`. L'analyse est écrite dans
+`rapport/resultats/partie4.json`.
+
 ## Rapport
 
 `rapport/rapport_jalon1.pdf` se régénère avec la commande suivante, à lancer sous Windows depuis la racine du projet.

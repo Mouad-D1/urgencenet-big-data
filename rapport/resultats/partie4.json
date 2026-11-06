@@ -1,0 +1,455 @@
+{
+  "kafka_rows": 9101,
+  "bronze_rows": 9101,
+  "bronze_distinct_offsets": 9101,
+  "triaged_rows": 2284,
+  "total_complete_mode": 2284,
+  "accepted_rows_window": 2278,
+  "dropped_rows_window": 6,
+  "batches_with_input": 46,
+  "prediction_errors": 0,
+  "late_buckets_seconds": {
+    "0-60": {
+      "total": 2131,
+      "retenus": 2131,
+      "rejetes": 0
+    },
+    "60-300": {
+      "total": 37,
+      "retenus": 37,
+      "rejetes": 0
+    },
+    "300-600": {
+      "total": 40,
+      "retenus": 40,
+      "rejetes": 0
+    },
+    "600-750": {
+      "total": 19,
+      "retenus": 19,
+      "rejetes": 0
+    },
+    "750-900": {
+      "total": 22,
+      "retenus": 16,
+      "rejetes": 6
+    },
+    "900-1000000000": {
+      "total": 0,
+      "retenus": 0,
+      "rejetes": 0
+    }
+  },
+  "late_examples": [
+    {
+      "visit_id": "V-1601067698",
+      "event_time": "2026-11-06T14:31:01+00:00",
+      "arrival": "2026-11-06T14:45:54.021000+00:00",
+      "delay_minutes": 14.88,
+      "batch": 30,
+      "watermark_for_late_events": "2026-11-06T14:35:39.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067300",
+      "event_time": "2026-11-06T14:28:07+00:00",
+      "arrival": "2026-11-06T14:42:40.023000+00:00",
+      "delay_minutes": 14.55,
+      "batch": 11,
+      "watermark_for_late_events": "2026-11-06T14:32:30.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": false
+    },
+    {
+      "visit_id": "V-1601067952",
+      "event_time": "2026-11-06T14:31:08+00:00",
+      "arrival": "2026-11-06T14:45:38.017000+00:00",
+      "delay_minutes": 14.5,
+      "batch": 28,
+      "watermark_for_late_events": "2026-11-06T14:35:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601066215",
+      "event_time": "2026-11-06T14:33:45+00:00",
+      "arrival": "2026-11-06T14:48:14.028000+00:00",
+      "delay_minutes": 14.48,
+      "batch": 44,
+      "watermark_for_late_events": "2026-11-06T14:37:59.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067680",
+      "event_time": "2026-11-06T14:29:50+00:00",
+      "arrival": "2026-11-06T14:44:19.007000+00:00",
+      "delay_minutes": 14.48,
+      "batch": 20,
+      "watermark_for_late_events": "2026-11-06T14:33:59.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": false
+    },
+    {
+      "visit_id": "V-1601065491",
+      "event_time": "2026-11-06T14:27:04+00:00",
+      "arrival": "2026-11-06T14:41:30.022000+00:00",
+      "delay_minutes": 14.43,
+      "batch": 4,
+      "watermark_for_late_events": "2026-11-06T14:31:19.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": false
+    },
+    {
+      "visit_id": "V-1601066350",
+      "event_time": "2026-11-06T14:26:53+00:00",
+      "arrival": "2026-11-06T14:41:16.079000+00:00",
+      "delay_minutes": 14.38,
+      "batch": 2,
+      "watermark_for_late_events": "1970-01-01T00:00:00.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601066563",
+      "event_time": "2026-11-06T14:29:24+00:00",
+      "arrival": "2026-11-06T14:43:34.042000+00:00",
+      "delay_minutes": 14.17,
+      "batch": 16,
+      "watermark_for_late_events": "2026-11-06T14:33:19.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": false
+    },
+    {
+      "visit_id": "V-1601067729",
+      "event_time": "2026-11-06T14:33:47+00:00",
+      "arrival": "2026-11-06T14:47:55.012000+00:00",
+      "delay_minutes": 14.13,
+      "batch": 42,
+      "watermark_for_late_events": "2026-11-06T14:37:39.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067849",
+      "event_time": "2026-11-06T14:30:14+00:00",
+      "arrival": "2026-11-06T14:44:04.011000+00:00",
+      "delay_minutes": 13.83,
+      "batch": 19,
+      "watermark_for_late_events": "2026-11-06T14:33:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601066148",
+      "event_time": "2026-11-06T14:30:21+00:00",
+      "arrival": "2026-11-06T14:44:10.011000+00:00",
+      "delay_minutes": 13.82,
+      "batch": 20,
+      "watermark_for_late_events": "2026-11-06T14:33:59.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601021644",
+      "event_time": "2026-11-06T14:34:33+00:00",
+      "arrival": "2026-11-06T14:48:20.017000+00:00",
+      "delay_minutes": 13.78,
+      "batch": 45,
+      "watermark_for_late_events": "2026-11-06T14:38:09.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601019937",
+      "event_time": "2026-11-06T14:31:20+00:00",
+      "arrival": "2026-11-06T14:45:05.016000+00:00",
+      "delay_minutes": 13.75,
+      "batch": 25,
+      "watermark_for_late_events": "2026-11-06T14:34:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601021112",
+      "event_time": "2026-11-06T14:32:11+00:00",
+      "arrival": "2026-11-06T14:45:55.018000+00:00",
+      "delay_minutes": 13.73,
+      "batch": 30,
+      "watermark_for_late_events": "2026-11-06T14:35:39.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601065416",
+      "event_time": "2026-11-06T14:27:44+00:00",
+      "arrival": "2026-11-06T14:41:27.027000+00:00",
+      "delay_minutes": 13.72,
+      "batch": 3,
+      "watermark_for_late_events": "2026-11-06T14:31:09.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": false
+    },
+    {
+      "visit_id": "V-1601065877",
+      "event_time": "2026-11-06T14:30:45+00:00",
+      "arrival": "2026-11-06T14:44:16.005000+00:00",
+      "delay_minutes": 13.52,
+      "batch": 20,
+      "watermark_for_late_events": "2026-11-06T14:33:59.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601065650",
+      "event_time": "2026-11-06T14:30:31+00:00",
+      "arrival": "2026-11-06T14:43:50.013000+00:00",
+      "delay_minutes": 13.32,
+      "batch": 18,
+      "watermark_for_late_events": "2026-11-06T14:33:39.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601066359",
+      "event_time": "2026-11-06T14:31:48+00:00",
+      "arrival": "2026-11-06T14:44:50.027000+00:00",
+      "delay_minutes": 13.03,
+      "batch": 24,
+      "watermark_for_late_events": "2026-11-06T14:34:39.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067468",
+      "event_time": "2026-11-06T14:30:36+00:00",
+      "arrival": "2026-11-06T14:43:33.005000+00:00",
+      "delay_minutes": 12.95,
+      "batch": 16,
+      "watermark_for_late_events": "2026-11-06T14:33:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067346",
+      "event_time": "2026-11-06T14:34:15+00:00",
+      "arrival": "2026-11-06T14:47:07.026000+00:00",
+      "delay_minutes": 12.87,
+      "batch": 37,
+      "watermark_for_late_events": "2026-11-06T14:36:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068496",
+      "event_time": "2026-11-06T14:32:19+00:00",
+      "arrival": "2026-11-06T14:45:06.021000+00:00",
+      "delay_minutes": 12.78,
+      "batch": 25,
+      "watermark_for_late_events": "2026-11-06T14:34:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067412",
+      "event_time": "2026-11-06T14:29:04+00:00",
+      "arrival": "2026-11-06T14:41:41.048000+00:00",
+      "delay_minutes": 12.62,
+      "batch": 5,
+      "watermark_for_late_events": "2026-11-06T14:31:29.000Z",
+      "window_end": "2026-11-06T14:30:00+00:00",
+      "retenu": false
+    },
+    {
+      "visit_id": "V-1601067930",
+      "event_time": "2026-11-06T14:34:36+00:00",
+      "arrival": "2026-11-06T14:46:38.005000+00:00",
+      "delay_minutes": 12.03,
+      "batch": 34,
+      "watermark_for_late_events": "2026-11-06T14:36:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067151",
+      "event_time": "2026-11-06T14:34:10+00:00",
+      "arrival": "2026-11-06T14:46:08.025000+00:00",
+      "delay_minutes": 11.97,
+      "batch": 31,
+      "watermark_for_late_events": "2026-11-06T14:35:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601040717",
+      "event_time": "2026-11-06T14:33:20+00:00",
+      "arrival": "2026-11-06T14:45:08.011000+00:00",
+      "delay_minutes": 11.8,
+      "batch": 25,
+      "watermark_for_late_events": "2026-11-06T14:34:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067134",
+      "event_time": "2026-11-06T14:33:17+00:00",
+      "arrival": "2026-11-06T14:45:04.023000+00:00",
+      "delay_minutes": 11.78,
+      "batch": 25,
+      "watermark_for_late_events": "2026-11-06T14:34:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068487",
+      "event_time": "2026-11-06T14:36:54+00:00",
+      "arrival": "2026-11-06T14:48:35.028000+00:00",
+      "delay_minutes": 11.68,
+      "batch": 46,
+      "watermark_for_late_events": "2026-11-06T14:38:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067688",
+      "event_time": "2026-11-06T14:36:09+00:00",
+      "arrival": "2026-11-06T14:47:48.018000+00:00",
+      "delay_minutes": 11.65,
+      "batch": 41,
+      "watermark_for_late_events": "2026-11-06T14:37:29.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068284",
+      "event_time": "2026-11-06T14:34:14+00:00",
+      "arrival": "2026-11-06T14:45:45.011000+00:00",
+      "delay_minutes": 11.52,
+      "batch": 29,
+      "watermark_for_late_events": "2026-11-06T14:35:29.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068471",
+      "event_time": "2026-11-06T14:37:06+00:00",
+      "arrival": "2026-11-06T14:48:33.014000+00:00",
+      "delay_minutes": 11.45,
+      "batch": 46,
+      "watermark_for_late_events": "2026-11-06T14:38:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601065502",
+      "event_time": "2026-11-06T14:31:27+00:00",
+      "arrival": "2026-11-06T14:42:48.017000+00:00",
+      "delay_minutes": 11.35,
+      "batch": 11,
+      "watermark_for_late_events": "2026-11-06T14:32:30.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068642",
+      "event_time": "2026-11-06T14:36:13+00:00",
+      "arrival": "2026-11-06T14:47:32.021000+00:00",
+      "delay_minutes": 11.32,
+      "batch": 40,
+      "watermark_for_late_events": "2026-11-06T14:37:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068178",
+      "event_time": "2026-11-06T14:37:17+00:00",
+      "arrival": "2026-11-06T14:48:25.009000+00:00",
+      "delay_minutes": 11.13,
+      "batch": 45,
+      "watermark_for_late_events": "2026-11-06T14:38:09.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601068042",
+      "event_time": "2026-11-06T14:36:12+00:00",
+      "arrival": "2026-11-06T14:47:05.010000+00:00",
+      "delay_minutes": 10.88,
+      "batch": 37,
+      "watermark_for_late_events": "2026-11-06T14:36:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601046571",
+      "event_time": "2026-11-06T14:32:34+00:00",
+      "arrival": "2026-11-06T14:43:12.009000+00:00",
+      "delay_minutes": 10.63,
+      "batch": 14,
+      "watermark_for_late_events": "2026-11-06T14:32:59.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601069403",
+      "event_time": "2026-11-06T14:36:55+00:00",
+      "arrival": "2026-11-06T14:47:30.024000+00:00",
+      "delay_minutes": 10.58,
+      "batch": 40,
+      "watermark_for_late_events": "2026-11-06T14:37:19.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067111",
+      "event_time": "2026-11-06T14:36:10+00:00",
+      "arrival": "2026-11-06T14:46:40.013000+00:00",
+      "delay_minutes": 10.5,
+      "batch": 35,
+      "watermark_for_late_events": "2026-11-06T14:36:29.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067958",
+      "event_time": "2026-11-06T14:34:33+00:00",
+      "arrival": "2026-11-06T14:45:01.023000+00:00",
+      "delay_minutes": 10.47,
+      "batch": 25,
+      "watermark_for_late_events": "2026-11-06T14:34:49.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601067616",
+      "event_time": "2026-11-06T14:30:45+00:00",
+      "arrival": "2026-11-06T14:41:02.921000+00:00",
+      "delay_minutes": 10.3,
+      "batch": 1,
+      "watermark_for_late_events": "1970-01-01T00:00:00.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601038328",
+      "event_time": "2026-11-06T14:30:47+00:00",
+      "arrival": "2026-11-06T14:41:05.005000+00:00",
+      "delay_minutes": 10.3,
+      "batch": 1,
+      "watermark_for_late_events": "1970-01-01T00:00:00.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    },
+    {
+      "visit_id": "V-1601066965",
+      "event_time": "2026-11-06T14:36:10+00:00",
+      "arrival": "2026-11-06T14:46:27.028000+00:00",
+      "delay_minutes": 10.28,
+      "batch": 33,
+      "watermark_for_late_events": "2026-11-06T14:36:09.000Z",
+      "window_end": "2026-11-06T14:40:00+00:00",
+      "retenu": true
+    }
+  ]
+}
