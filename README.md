@@ -140,6 +140,41 @@ Pour reproduire l'analyse du watermark, recréer d'abord un topic vide, puis lan
 `--reset` supprime les checkpoints de cette partie et le dossier `urgences_raw`. L'analyse est écrite dans
 `rapport/resultats/partie4.json`.
 
+## Partie 5 : pipeline de production
+
+Démonstration (arrêt par Ctrl+C), avec le producteur dans un second terminal comme en Partie 4 :
+
+```bash
+docker compose exec jupyter spark-submit spark/partie5_pipeline.py
+```
+
+La requête `silver` lit Kafka, dédoublonne avec un watermark de 10 minutes, joint le référentiel, ajoute
+`wait_band` et écrit `lake/silver/urgences_clean/` (partitionné par `city` et `date`). Trois requêtes relisent
+Silver en flux et écrivent en Delta Lake : `lake/gold/kpi_facility_10min/` (fenêtre tumbling),
+`lake/gold/taux_prioritaires_10min/` (fenêtre glissante) et `lake/gold/sessions_triage/` (fenêtre de session).
+
+Exécution de référence, avec arrêt de la requête Silver pendant 2 minutes puis reprise sur son checkpoint.
+Recréer d'abord un topic vide, puis lancer ces trois commandes dans trois terminaux :
+
+```bash
+docker compose exec jupyter spark-submit spark/partie5_pipeline.py --reset --duration 1560 --stop-at 600 --pause 120
+```
+
+```bash
+docker compose exec jupyter python3 producer.py --mode kafka --rate 20 --duration 1440
+```
+
+```bash
+bash scripts/releve_consumer_groups.sh
+```
+
+Le dernier script relève `kafka-consumer-groups.sh --describe` pendant l'arrêt, après la reprise et à la fin.
+Consulter les groupes à la main :
+
+```bash
+docker compose exec kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server kafka:9092 --describe --group urgencenet-silver-suivi
+```
+
 ## Rapport
 
 `rapport/rapport_jalon1.pdf` se régénère avec la commande suivante, à lancer sous Windows depuis la racine du projet.

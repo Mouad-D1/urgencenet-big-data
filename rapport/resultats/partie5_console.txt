@@ -1,0 +1,181 @@
+[DEMARRAGE] silver id=fed4cd13-c746-4db3-9a90-81ddb21ba55c run=1ea31033-108e-48c6-afbd-c726a9d301cd
+[DEMARRAGE] gold_kpi_10min id=66fbb34a-e4a4-4567-a339-9d7884b9968a run=6242d027-9af8-4b6c-9e69-d76788a3e60d
+[DEMARRAGE] gold_taux_prioritaires id=b4eb5852-c7da-4047-9f72-32433593b453 run=a4e1662a-eb5d-4d28-8720-9bc57dd27467
+[DEMARRAGE] gold_sessions_triage id=2eb9f976-5632-42fe-8bf1-e7408d042574 run=7575208f-8dc8-4ac4-b953-a7d350492fc8
+[SILVER] batch=1 lignes=306 doublons=0 retards_rejetes=0 debut={"urgences":{"2":0,"1":0,"0":0}} fin={"urgences":{"2":100,"1":106,"0":100}}
+[SILVER] batch=2 lignes=553 doublons=2 retards_rejetes=0 debut={"urgences":{"2":100,"1":106,"0":100}} fin={"urgences":{"2":269,"1":284,"0":306}}
+[SILVER] batch=3 lignes=588 doublons=6 retards_rejetes=3 debut={"urgences":{"2":269,"1":284,"0":306}} fin={"urgences":{"2":458,"1":495,"0":494}}
+[SILVER] batch=4 lignes=577 doublons=4 retards_rejetes=12 debut={"urgences":{"2":458,"1":495,"0":494}} fin={"urgences":{"2":660,"1":677,"0":687}}
+[SILVER] batch=5 lignes=546 doublons=12 retards_rejetes=8 debut={"urgences":{"2":660,"1":677,"0":687}} fin={"urgences":{"2":866,"1":852,"0":852}}
+[SILVER] batch=6 lignes=619 doublons=12 retards_rejetes=11 debut={"urgences":{"2":866,"1":852,"0":852}} fin={"urgences":{"2":1063,"1":1053,"0":1073}}
+[SILVER] batch=7 lignes=610 doublons=13 retards_rejetes=7 debut={"urgences":{"2":1063,"1":1053,"0":1073}} fin={"urgences":{"2":1257,"1":1270,"0":1272}}
+[SILVER] batch=8 lignes=650 doublons=7 retards_rejetes=14 debut={"urgences":{"2":1257,"1":1270,"0":1272}} fin={"urgences":{"2":1491,"1":1475,"0":1483}}
+[SILVER] batch=9 lignes=570 doublons=6 retards_rejetes=11 debut={"urgences":{"2":1491,"1":1475,"0":1483}} fin={"urgences":{"2":1669,"1":1672,"0":1678}}
+[SILVER] batch=10 lignes=642 doublons=13 retards_rejetes=12 debut={"urgences":{"2":1669,"1":1672,"0":1678}} fin={"urgences":{"2":1890,"1":1892,"0":1879}}
+[SILVER] batch=11 lignes=592 doublons=11 retards_rejetes=11 debut={"urgences":{"2":1890,"1":1892,"0":1879}} fin={"urgences":{"2":2086,"1":2089,"0":2078}}
+[SILVER] batch=12 lignes=602 doublons=8 retards_rejetes=12 debut={"urgences":{"2":2086,"1":2089,"0":2078}} fin={"urgences":{"2":2288,"1":2301,"0":2266}}
+[SILVER] batch=13 lignes=576 doublons=6 retards_rejetes=12 debut={"urgences":{"2":2288,"1":2301,"0":2266}} fin={"urgences":{"2":2461,"1":2513,"0":2457}}
+[SILVER] batch=14 lignes=617 doublons=9 retards_rejetes=6 debut={"urgences":{"2":2461,"1":2513,"0":2457}} fin={"urgences":{"2":2674,"1":2712,"0":2662}}
+[SILVER] batch=15 lignes=571 doublons=10 retards_rejetes=8 debut={"urgences":{"2":2674,"1":2712,"0":2662}} fin={"urgences":{"2":2867,"1":2903,"0":2849}}
+[SILVER] batch=16 lignes=636 doublons=12 retards_rejetes=11 debut={"urgences":{"2":2867,"1":2903,"0":2849}} fin={"urgences":{"2":3065,"1":3145,"0":3045}}
+[SILVER] batch=17 lignes=606 doublons=14 retards_rejetes=8 debut={"urgences":{"2":3065,"1":3145,"0":3045}} fin={"urgences":{"2":3253,"1":3358,"0":3250}}
+[SILVER] batch=18 lignes=564 doublons=11 retards_rejetes=5 debut={"urgences":{"2":3253,"1":3358,"0":3250}} fin={"urgences":{"2":3433,"1":3538,"0":3454}}
+[SILVER] batch=19 lignes=620 doublons=9 retards_rejetes=9 debut={"urgences":{"2":3433,"1":3538,"0":3454}} fin={"urgences":{"2":3624,"1":3754,"0":3667}}
+[SILVER] batch=20 lignes=635 doublons=11 retards_rejetes=11 debut={"urgences":{"2":3624,"1":3754,"0":3667}} fin={"urgences":{"2":3824,"1":3987,"0":3869}}
+[ARRET] id=fed4cd13-c746-4db3-9a90-81ddb21ba55c run=1ea31033-108e-48c6-afbd-c726a9d301cd exception=None
+[ARRET SILVER] lignes Silver=11333 cles=11333 dernier batch offsets=20 dernier batch commite=20
+[CHECKPOINT] offsets/20 :
+v1
+{"batchWatermarkMs":1793979989000,"batchTimestampMs":1793980620006,"conf":{"spark.sql.streaming.stateStore.providerClass":"org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider","spark.sql.streaming.join.stateFormatVersion":"2","spark.sql.streaming.stateStore.compression.codec":"lz4","spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan":"false","spark.sql.streaming.stateStore.rocksdb.formatVersion":"5","spark.sql.streaming.statefulOperator.useStrictDistribution":"true","spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion":"2","spark.sql.streaming.multipleWatermarkPolicy":"min","spark.sql.streaming.aggregation.stateFormatVersion":"2","spark.sql.shuffle.partitions":"8"}}
+{"urgences":{"2":3824,"1":3987,"0":3869}}
+[DEMARRAGE] silver id=fed4cd13-c746-4db3-9a90-81ddb21ba55c run=c5488e11-5ea8-4938-a171-d32c7ec96fc2
+[REPRISE SILVER] meme checkpoint, nouveau runId
+[SILVER] batch=21 lignes=2755 doublons=53 retards_rejetes=37 debut={"urgences":{"2":3824,"1":3987,"0":3869}} fin={"urgences":{"2":4770,"1":4854,"0":4811}}
+[REPRISE SILVER] premier batch=21 debut={"urgences":{"2":3824,"1":3987,"0":3869}} fin={"urgences":{"2":4770,"1":4854,"0":4811}} lignes=2755
+[SILVER] batch=22 lignes=255 doublons=7 retards_rejetes=3 debut={"urgences":{"2":4770,"1":4854,"0":4811}} fin={"urgences":{"2":4848,"1":4944,"0":4898}}
+[SILVER] batch=23 lignes=603 doublons=7 retards_rejetes=8 debut={"urgences":{"2":4848,"1":4944,"0":4898}} fin={"urgences":{"2":5049,"1":5143,"0":5101}}
+[SILVER] batch=24 lignes=620 doublons=18 retards_rejetes=10 debut={"urgences":{"2":5049,"1":5143,"0":5101}} fin={"urgences":{"2":5281,"1":5338,"0":5294}}
+[SILVER] batch=25 lignes=561 doublons=8 retards_rejetes=9 debut={"urgences":{"2":5281,"1":5338,"0":5294}} fin={"urgences":{"2":5477,"1":5514,"0":5483}}
+[SILVER] batch=26 lignes=577 doublons=12 retards_rejetes=11 debut={"urgences":{"2":5477,"1":5514,"0":5483}} fin={"urgences":{"2":5657,"1":5732,"0":5662}}
+[SILVER] batch=27 lignes=617 doublons=9 retards_rejetes=3 debut={"urgences":{"2":5657,"1":5732,"0":5662}} fin={"urgences":{"2":5843,"1":5955,"0":5870}}
+[SILVER] batch=28 lignes=642 doublons=8 retards_rejetes=13 debut={"urgences":{"2":5843,"1":5955,"0":5870}} fin={"urgences":{"2":6042,"1":6194,"0":6074}}
+[SILVER] batch=29 lignes=626 doublons=13 retards_rejetes=8 debut={"urgences":{"2":6042,"1":6194,"0":6074}} fin={"urgences":{"2":6253,"1":6390,"0":6293}}
+[SILVER] batch=30 lignes=589 doublons=17 retards_rejetes=10 debut={"urgences":{"2":6253,"1":6390,"0":6293}} fin={"urgences":{"2":6455,"1":6586,"0":6484}}
+[SILVER] batch=31 lignes=595 doublons=12 retards_rejetes=10 debut={"urgences":{"2":6455,"1":6586,"0":6484}} fin={"urgences":{"2":6658,"1":6788,"0":6674}}
+[SILVER] batch=32 lignes=597 doublons=9 retards_rejetes=13 debut={"urgences":{"2":6658,"1":6788,"0":6674}} fin={"urgences":{"2":6876,"1":6974,"0":6867}}
+[SILVER] batch=33 lignes=630 doublons=13 retards_rejetes=14 debut={"urgences":{"2":6876,"1":6974,"0":6867}} fin={"urgences":{"2":7078,"1":7200,"0":7069}}
+[SILVER] batch=34 lignes=594 doublons=11 retards_rejetes=8 debut={"urgences":{"2":7078,"1":7200,"0":7069}} fin={"urgences":{"2":7277,"1":7406,"0":7258}}
+[SILVER] batch=35 lignes=615 doublons=10 retards_rejetes=7 debut={"urgences":{"2":7277,"1":7406,"0":7258}} fin={"urgences":{"2":7497,"1":7610,"0":7449}}
+[SILVER] batch=36 lignes=599 doublons=15 retards_rejetes=8 debut={"urgences":{"2":7497,"1":7610,"0":7449}} fin={"urgences":{"2":7694,"1":7817,"0":7644}}
+[SILVER] batch=37 lignes=611 doublons=16 retards_rejetes=7 debut={"urgences":{"2":7694,"1":7817,"0":7644}} fin={"urgences":{"2":7901,"1":8012,"0":7853}}
+[SILVER] batch=38 lignes=578 doublons=13 retards_rejetes=9 debut={"urgences":{"2":7901,"1":8012,"0":7853}} fin={"urgences":{"2":8103,"1":8204,"0":8037}}
+[SILVER] batch=39 lignes=578 doublons=9 retards_rejetes=6 debut={"urgences":{"2":8103,"1":8204,"0":8037}} fin={"urgences":{"2":8311,"1":8395,"0":8216}}
+[SILVER] batch=40 lignes=632 doublons=16 retards_rejetes=5 debut={"urgences":{"2":8311,"1":8395,"0":8216}} fin={"urgences":{"2":8536,"1":8593,"0":8425}}
+[SILVER] batch=41 lignes=598 doublons=14 retards_rejetes=4 debut={"urgences":{"2":8536,"1":8593,"0":8425}} fin={"urgences":{"2":8726,"1":8797,"0":8629}}
+[SILVER] batch=42 lignes=604 doublons=10 retards_rejetes=12 debut={"urgences":{"2":8726,"1":8797,"0":8629}} fin={"urgences":{"2":8935,"1":9005,"0":8816}}
+[SILVER] batch=43 lignes=632 doublons=14 retards_rejetes=15 debut={"urgences":{"2":8935,"1":9005,"0":8816}} fin={"urgences":{"2":9149,"1":9208,"0":9031}}
+[SILVER] batch=44 lignes=558 doublons=7 retards_rejetes=9 debut={"urgences":{"2":9149,"1":9208,"0":9031}} fin={"urgences":{"2":9324,"1":9398,"0":9224}}
+[SILVER] batch=45 lignes=615 doublons=11 retards_rejetes=7 debut={"urgences":{"2":9324,"1":9398,"0":9224}} fin={"urgences":{"2":9527,"1":9599,"0":9435}}
+[SILVER] batch=46 lignes=311 doublons=10 retards_rejetes=8 debut={"urgences":{"2":9527,"1":9599,"0":9435}} fin={"urgences":{"2":9622,"1":9693,"0":9557}}
+[ARRET] id=fed4cd13-c746-4db3-9a90-81ddb21ba55c run=c5488e11-5ea8-4938-a171-d32c7ec96fc2 exception=None
+[ARRET] id=66fbb34a-e4a4-4567-a339-9d7884b9968a run=6242d027-9af8-4b6c-9e69-d76788a3e60d exception=None
+[ARRET] id=b4eb5852-c7da-4047-9f72-32433593b453 run=a4e1662a-eb5d-4d28-8720-9bc57dd27467 exception=None
+[ARRET] id=2eb9f976-5632-42fe-8bf1-e7408d042574 run=7575208f-8dc8-4ac4-b953-a7d350492fc8 exception=None
+
+[GOLD] relecture batch de kpi_facility_10min
++-------------------+-------------------+-----------+----------+--------------+--------+----------------+---------------+--------------------------+
+|window_start       |window_end         |facility_id|city      |hospital_group|passages|prises_en_charge|attente_moyenne|updated_at                |
++-------------------+-------------------+-----------+----------+--------------+--------+----------------+---------------+--------------------------+
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-001      |Casablanca|GHT-Atlantique|15      |17              |33.41          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-002      |Casablanca|GHT-Atlantique|17      |19              |36.05          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-003      |Casablanca|GHT-Atlantique|6       |14              |39.79          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-004      |Casablanca|GHT-Atlantique|15      |20              |26.8           |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-005      |Casablanca|GHT-Atlantique|13      |9               |46.11          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-006      |Casablanca|GHT-Atlantique|4       |6               |25.67          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-007      |Casablanca|GHT-Atlantique|6       |4               |47.75          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-008      |Casablanca|GHT-Atlantique|10      |6               |44.83          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-009      |Casablanca|GHT-Atlantique|6       |7               |49.86          |2026-11-06 16:12:02.046728|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-010      |Casablanca|GHT-Atlantique|5       |7               |57.43          |2026-11-06 16:12:02.046728|
++-------------------+-------------------+-----------+----------+--------------+--------+----------------+---------------+--------------------------+
+only showing top 10 rows
+
+[GOLD] DESCRIBE HISTORY
++-------+-------------------+---------+---------------------+--------------------+-------------+
+|version|timestamp          |operation|numTargetRowsInserted|numTargetRowsUpdated|numOutputRows|
++-------+-------------------+---------+---------------------+--------------------+-------------+
+|44     |2026-11-06 16:12:10|MERGE    |0                    |47                  |174          |
+|43     |2026-11-06 16:11:39|MERGE    |0                    |59                  |174          |
+|42     |2026-11-06 16:11:11|MERGE    |40                   |17                  |172          |
+|41     |2026-11-06 16:10:39|MERGE    |0                    |42                  |134          |
+|40     |2026-11-06 16:10:10|MERGE    |0                    |44                  |134          |
+|39     |2026-11-06 16:09:39|MERGE    |0                    |44                  |134          |
+|38     |2026-11-06 16:09:11|MERGE    |0                    |43                  |134          |
+|37     |2026-11-06 16:08:42|MERGE    |0                    |48                  |134          |
+|36     |2026-11-06 16:08:11|MERGE    |0                    |48                  |134          |
+|35     |2026-11-06 16:07:40|MERGE    |0                    |47                  |134          |
+|34     |2026-11-06 16:07:11|MERGE    |0                    |47                  |134          |
+|33     |2026-11-06 16:06:39|MERGE    |0                    |47                  |134          |
++-------+-------------------+---------+---------------------+--------------------+-------------+
+only showing top 12 rows
+
+[GOLD] taux de cas prioritaires (fenetre glissante)
++-------------------+-------------------+-----------+----------+--------------+-------+------------+-----------------+--------------------------+
+|window_start       |window_end         |facility_id|city      |hospital_group|triages|prioritaires|taux_prioritaires|updated_at                |
++-------------------+-------------------+-----------+----------+--------------+-------+------------+-----------------+--------------------------+
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-009      |Casablanca|GHT-Atlantique|3      |2           |0.6667           |2026-11-06 16:12:02.286387|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-008      |Casablanca|GHT-Atlantique|10     |4           |0.4              |2026-11-06 16:12:02.286387|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-002      |Casablanca|GHT-Atlantique|8      |2           |0.25             |2026-11-06 16:12:02.286387|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-029      |Tanger    |GHT-Nord      |1      |1           |1.0              |2026-11-06 16:12:02.286387|
+|2026-11-06 16:10:00|2026-11-06 16:20:00|F-030      |Tanger    |GHT-Nord      |3      |1           |0.3333           |2026-11-06 16:12:02.286387|
++-------------------+-------------------+-----------+----------+--------------+-------+------------+-----------------+--------------------------+
+only showing top 5 rows
+
+[GOLD] sessions des postes de triage
++-------------------+-------------------+--------+-----------+----------+--------------+-------+-------------------+-------------------+------------------+
+|session_start      |session_end        |desk_id |facility_id|city      |hospital_group|triages|premier_triage     |dernier_triage     |duree_activite_min|
++-------------------+-------------------+--------+-----------+----------+--------------+-------+-------------------+-------------------+------------------+
+|2026-11-06 15:32:53|2026-11-06 15:39:45|T-CAS-33|F-013      |Casablanca|GHT-Atlantique|2      |2026-11-06 15:32:53|2026-11-06 15:34:45|1.87              |
+|2026-11-06 15:33:42|2026-11-06 15:38:42|T-CAS-08|F-002      |Casablanca|GHT-Atlantique|1      |2026-11-06 15:33:42|2026-11-06 15:33:42|0.0               |
+|2026-11-06 15:33:48|2026-11-06 15:38:48|T-TNG-07|F-026      |Tanger    |GHT-Nord      |1      |2026-11-06 15:33:48|2026-11-06 15:33:48|0.0               |
+|2026-11-06 15:35:42|2026-11-06 15:40:42|T-CAS-27|F-010      |Casablanca|GHT-Atlantique|1      |2026-11-06 15:35:42|2026-11-06 15:35:42|0.0               |
+|2026-11-06 15:36:36|2026-11-06 15:41:36|T-TNG-09|F-027      |Tanger    |GHT-Nord      |1      |2026-11-06 15:36:36|2026-11-06 15:36:36|0.0               |
++-------------------+-------------------+--------+-----------+----------+--------------+-------+-------------------+-------------------+------------------+
+only showing top 5 rows
+
+{
+  "before_restart": {
+    "silver_rows": 11333,
+    "silver_distinct_keys": 11333,
+    "last_processed_end_offset": "{\"urgences\":{\"2\":3824,\"1\":3987,\"0\":3869}}",
+    "checkpoint_last_offsets_batch": 20,
+    "checkpoint_last_commit_batch": 20,
+    "checkpoint_offsets_file": "v1\n{\"batchWatermarkMs\":1793979989000,\"batchTimestampMs\":1793980620006,\"conf\":{\"spark.sql.streaming.stateStore.providerClass\":\"org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider\",\"spark.sql.streaming.join.stateFormatVersion\":\"2\",\"spark.sql.streaming.stateStore.compression.codec\":\"lz4\",\"spark.sql.optimizer.pruneFiltersCanPruneStreamingSubplan\":\"false\",\"spark.sql.streaming.stateStore.rocksdb.formatVersion\":\"5\",\"spark.sql.streaming.statefulOperator.useStrictDistribution\":\"true\",\"spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion\":\"2\",\"spark.sql.streaming.multipleWatermarkPolicy\":\"min\",\"spark.sql.streaming.aggregation.stateFormatVersion\":\"2\",\"spark.sql.shuffle.partitions\":\"8\"}}\n{\"urgences\":{\"2\":3824,\"1\":3987,\"0\":3869}}"
+  },
+  "after_restart_first_batch": {
+    "query": "silver",
+    "run": "c5488e11-5ea8-4938-a171-d32c7ec96fc2",
+    "batch": 21,
+    "start": "2026-11-06T15:59:15.431Z",
+    "input_rows": 2755,
+    "watermark": "2026-11-06T15:46:59.000Z",
+    "start_offset": "{\"urgences\":{\"2\":3824,\"1\":3987,\"0\":3869}}",
+    "end_offset": "{\"urgences\":{\"2\":4770,\"1\":4854,\"0\":4811}}",
+    "dropped_late": 37,
+    "dropped_duplicates": 53
+  },
+  "kafka_rows": 28872,
+  "kafka_distinct_keys": 28345,
+  "kafka_duplicate_rows": 527,
+  "silver_rows": 27929,
+  "silver_distinct_keys": 27929,
+  "keys_balance_ok": true,
+  "reported_silver_input_rows": 28872,
+  "silver_unknown_facility": 0,
+  "dropped_duplicates": 518,
+  "dropped_late": 425,
+  "missing_keys": 416,
+  "missing_min_delay_minutes": 10.65,
+  "present_max_delay_minutes": 14.866666666666667,
+  "silver_files": 184,
+  "silver_by_city": {
+    "Marrakech": 6826,
+    "Rabat": 6962,
+    "Casablanca": 9581,
+    "Tanger": 4560
+  },
+  "gold": {
+    "kpi_rows": 183,
+    "kpi_closed_windows_compared": 103,
+    "kpi_exact_matches": 103,
+    "kpi_dropped_late": 0,
+    "final_watermark": "2026-11-06T16:01:15.000Z",
+    "priority_rows": 320,
+    "session_rows": 65,
+    "history_versions": 45,
+    "session_duration_minutes": {
+      "moyenne": 3.99,
+      "min": 0.0,
+      "max": 9.8
+    }
+  }
+}

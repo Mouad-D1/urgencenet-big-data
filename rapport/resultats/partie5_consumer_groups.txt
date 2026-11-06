@@ -1,0 +1,44 @@
+===== Requete Silver arretee (2026-11-06T15:57:16Z)
+
+Error: Consumer group 'urgencenet-silver' does not exist.
+
+
+Consumer group 'urgencenet-silver-suivi' has no active members.
+
+GROUP                   TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+urgencenet-silver-suivi urgences        2          3824            3983            159             -               -               -
+urgencenet-silver-suivi urgences        0          3869            4018            149             -               -               -
+urgencenet-silver-suivi urgences        1          3987            4140            153             -               -               -
+===== Requete Silver arretee depuis une minute, producteur actif (2026-11-06T15:58:24Z)
+
+Error: Consumer group 'urgencenet-silver' does not exist.
+
+
+Consumer group 'urgencenet-silver-suivi' has no active members.
+
+GROUP                   TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+urgencenet-silver-suivi urgences        2          3824            4459            635             -               -               -
+urgencenet-silver-suivi urgences        0          3869            4504            635             -               -               -
+urgencenet-silver-suivi urgences        1          3987            4582            595             -               -               -
+===== Apres la reprise de la requete Silver (2026-11-06T15:59:23Z)
+
+Error: Consumer group 'urgencenet-silver' does not exist.
+
+
+GROUP                   TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+Consumer group 'urgencenet-silver-suivi' has no active members.
+
+urgencenet-silver-suivi urgences        2          4848            4944            96              -               -               -
+urgencenet-silver-suivi urgences        0          4898            4976            78              -               -               -
+urgencenet-silver-suivi urgences        1          4944            5030            86              -               -               -
+===== Fin de l'execution (2026-11-06T16:15:21Z)
+
+Error: Consumer group 'urgencenet-silver' does not exist.
+
+
+Consumer group 'urgencenet-silver-suivi' has no active members.
+
+GROUP                   TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+urgencenet-silver-suivi urgences        2          9622            9622            0               -               -               -
+urgencenet-silver-suivi urgences        0          9557            9557            0               -               -               -
+urgencenet-silver-suivi urgences        1          9693            9693            0               -               -               -
