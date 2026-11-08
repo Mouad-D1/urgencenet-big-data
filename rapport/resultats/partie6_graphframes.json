@@ -1,0 +1,571 @@
+{
+  "vertices": 6804,
+  "edges": 25831,
+  "vertices_by_group_type": [
+    {
+      "hospital_group": "GHT-Atlantique",
+      "vertex_type": "ETABLISSEMENT",
+      "count": 14
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "vertex_type": "PATIENT",
+      "count": 2337
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "vertex_type": "SERVICE",
+      "count": 7
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "vertex_type": "ETABLISSEMENT",
+      "count": 16
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "vertex_type": "PATIENT",
+      "count": 2731
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "vertex_type": "SERVICE",
+      "count": 7
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "vertex_type": "ETABLISSEMENT",
+      "count": 10
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "vertex_type": "PATIENT",
+      "count": 1675
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "vertex_type": "SERVICE",
+      "count": 7
+    }
+  ],
+  "edges_by_group_type": [
+    {
+      "hospital_group": "GHT-Atlantique",
+      "relationship": "ADMITTED_AT",
+      "count": 4248
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "relationship": "HAS_DEPARTMENT",
+      "count": 57
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "relationship": "TRANSFERRED_TO",
+      "count": 419
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "relationship": "TREATED_IN",
+      "count": 4248
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "relationship": "ADMITTED_AT",
+      "count": 4927
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "relationship": "HAS_DEPARTMENT",
+      "count": 63
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "relationship": "TRANSFERRED_TO",
+      "count": 418
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "relationship": "TREATED_IN",
+      "count": 4927
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "relationship": "ADMITTED_AT",
+      "count": 3082
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "relationship": "HAS_DEPARTMENT",
+      "count": 39
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "relationship": "TRANSFERRED_TO",
+      "count": 321
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "relationship": "TREATED_IN",
+      "count": 3082
+    }
+  ],
+  "duplicate_vertex_ids": 0,
+  "consistency": {
+    "transfers": 1158,
+    "transfers_to_unknown_facility": 0,
+    "self_transfers": 0,
+    "edges_with_unknown_endpoint": 0
+  },
+  "cross_group": {
+    "total": 58,
+    "to_chu": 48,
+    "to_non_chu": 10
+  },
+  "motifs": {
+    "chains_a_b_c": 64,
+    "chain_patients": 48,
+    "loops_a_b_a": 12,
+    "loop_patients": 12,
+    "reciprocal_facility_pairs": 104,
+    "patients_in_several_facilities": 3120,
+    "chain_examples": [
+      {
+        "patient_id": "P-00272",
+        "a": "F-014",
+        "b": "F-001",
+        "c": "F-006",
+        "visit_1": "V-0000010",
+        "visit_2": "V-0000011",
+        "hospital_group": "GHT-Atlantique"
+      },
+      {
+        "patient_id": "P-00272",
+        "a": "F-006",
+        "b": "F-007",
+        "c": "F-005",
+        "visit_1": "V-0000012",
+        "visit_2": "V-0000013",
+        "hospital_group": "GHT-Atlantique"
+      },
+      {
+        "patient_id": "P-00272",
+        "a": "F-001",
+        "b": "F-006",
+        "c": "F-007",
+        "visit_1": "V-0000011",
+        "visit_2": "V-0000012",
+        "hospital_group": "GHT-Atlantique"
+      }
+    ],
+    "loop_examples": [
+      {
+        "patient_id": "P-00281",
+        "a": "F-014",
+        "b": "F-003",
+        "visit_1": "V-0000033",
+        "visit_2": "V-0000034",
+        "hospital_group": "GHT-Atlantique"
+      },
+      {
+        "patient_id": "P-00439",
+        "a": "F-005",
+        "b": "F-002",
+        "visit_1": "V-0000039",
+        "visit_2": "V-0000040",
+        "hospital_group": "GHT-Atlantique"
+      },
+      {
+        "patient_id": "P-00969",
+        "a": "F-002",
+        "b": "F-013",
+        "visit_1": "V-0000029",
+        "visit_2": "V-0000030",
+        "hospital_group": "GHT-Atlantique"
+      }
+    ]
+  },
+  "degrees_seconds": 3.124,
+  "top_receivers": [
+    {
+      "id": "F-025",
+      "facility_type": "CHU",
+      "hospital_group": "GHT-Nord",
+      "inDegree": 119,
+      "share_received": 0.2723
+    },
+    {
+      "id": "F-031",
+      "facility_type": "CHU",
+      "hospital_group": "GHT-Sud",
+      "inDegree": 113,
+      "share_received": 0.3267
+    },
+    {
+      "id": "F-015",
+      "facility_type": "CHU",
+      "hospital_group": "GHT-Nord",
+      "inDegree": 109,
+      "share_received": 0.2621
+    },
+    {
+      "id": "F-001",
+      "facility_type": "CHU",
+      "hospital_group": "GHT-Atlantique",
+      "inDegree": 101,
+      "share_received": 0.2302
+    },
+    {
+      "id": "F-002",
+      "facility_type": "CHU",
+      "hospital_group": "GHT-Atlantique",
+      "inDegree": 98,
+      "share_received": 0.2228
+    }
+  ],
+  "top_senders": [
+    {
+      "id": "F-013",
+      "facility_type": "CENTRE_SANTE",
+      "hospital_group": "GHT-Atlantique",
+      "outDegree": 78,
+      "share_sent": 0.1931
+    },
+    {
+      "id": "F-033",
+      "facility_type": "HOPITAL_REGIONAL",
+      "hospital_group": "GHT-Sud",
+      "outDegree": 53,
+      "share_sent": 0.1716
+    },
+    {
+      "id": "F-016",
+      "facility_type": "HOPITAL_REGIONAL",
+      "hospital_group": "GHT-Nord",
+      "outDegree": 47,
+      "share_sent": 0.117
+    },
+    {
+      "id": "F-004",
+      "facility_type": "HOPITAL_REGIONAL",
+      "hospital_group": "GHT-Atlantique",
+      "outDegree": 46,
+      "share_sent": 0.1064
+    },
+    {
+      "id": "F-017",
+      "facility_type": "HOPITAL_REGIONAL",
+      "hospital_group": "GHT-Nord",
+      "outDegree": 43,
+      "share_sent": 0.1043
+    }
+  ],
+  "components_seconds": 79.969,
+  "components_full_graph": 1,
+  "largest_component_vertices": 6804,
+  "components_transfer_graph": [
+    {
+      "component": 0,
+      "facilities": 40,
+      "groups": [
+        "GHT-Nord",
+        "GHT-Sud",
+        "GHT-Atlantique"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-00281",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-014 -> F-003 -> F-014"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-00439",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-005 -> F-002 -> F-005"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-00969",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-002 -> F-013 -> F-002"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-01023",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-001 -> F-008 -> F-001"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-01110",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-001 -> F-002 -> F-001"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-01287",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-011 -> F-012 -> F-011"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-03919",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-031 -> F-033 -> F-031"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-04032",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-033 -> F-031 -> F-033"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-04254",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-038 -> F-033 -> F-038"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-07310",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-016 -> F-015 -> F-016"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-07373",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-019 -> F-029 -> F-019"
+    },
+    {
+      "rule": "boucle_transfert",
+      "subject": "P-08661",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-025 -> F-027 -> F-025"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000043",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-037 -> F-005 (HOPITAL_REGIONAL, GHT-Atlantique)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000044",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-040 -> F-028 (CLINIQUE, GHT-Nord)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000045",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-037 -> F-029 (CENTRE_SANTE, GHT-Nord)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000046",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-022 -> F-035 (CLINIQUE, GHT-Sud)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000047",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-018 -> F-007 (CLINIQUE, GHT-Atlantique)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000048",
+      "hospital_group": "GHT-Sud",
+      "detail": "F-037 -> F-012 (CENTRE_SANTE, GHT-Atlantique)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000049",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-025 -> F-012 (CENTRE_SANTE, GHT-Atlantique)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000050",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-019 -> F-035 (CLINIQUE, GHT-Sud)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000051",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "F-005 -> F-019 (CLINIQUE, GHT-Nord)"
+    },
+    {
+      "rule": "inter_groupes_hors_chu",
+      "subject": "V-0000052",
+      "hospital_group": "GHT-Nord",
+      "detail": "F-017 -> F-007 (CLINIQUE, GHT-Atlantique)"
+    },
+    {
+      "rule": "part_recue_elevee",
+      "subject": "F-035",
+      "hospital_group": "GHT-Sud",
+      "detail": "26.1 % des transferts du groupe"
+    },
+    {
+      "rule": "transferts_frequents",
+      "subject": "P-00272",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "4 transferts"
+    },
+    {
+      "rule": "transferts_frequents",
+      "subject": "P-00277",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "4 transferts"
+    },
+    {
+      "rule": "transferts_frequents",
+      "subject": "P-02197",
+      "hospital_group": "GHT-Atlantique",
+      "detail": "5 transferts"
+    },
+    {
+      "rule": "transferts_frequents",
+      "subject": "P-03896",
+      "hospital_group": "GHT-Sud",
+      "detail": "4 transferts"
+    },
+    {
+      "rule": "transferts_frequents",
+      "subject": "P-05743",
+      "hospital_group": "GHT-Sud",
+      "detail": "5 transferts"
+    },
+    {
+      "rule": "transferts_frequents",
+      "subject": "P-06181",
+      "hospital_group": "GHT-Nord",
+      "detail": "5 transferts"
+    }
+  ],
+  "rule_evaluation": {
+    "transferts_frequents": {
+      "injectes": 6,
+      "detectes": 6,
+      "vrais_positifs": 6,
+      "detectes_non_injectes": [],
+      "manques": []
+    },
+    "boucle_transfert": {
+      "injectes": 8,
+      "detectes": 12,
+      "vrais_positifs": 8,
+      "detectes_non_injectes": [
+        "P-01023",
+        "P-01110",
+        "P-03919",
+        "P-04032"
+      ],
+      "manques": []
+    },
+    "inter_groupes_hors_chu": {
+      "injectes": 10,
+      "detectes": 10,
+      "vrais_positifs": 10,
+      "detectes_non_injectes": [],
+      "manques": []
+    },
+    "part_recue_elevee": {
+      "injectes": 1,
+      "detectes": 1,
+      "vrais_positifs": 1,
+      "detectes_non_injectes": [],
+      "manques": []
+    },
+    "part_emise_elevee": {
+      "injectes": 1,
+      "detectes": 0,
+      "vrais_positifs": 0,
+      "detectes_non_injectes": [],
+      "manques": [
+        "F-013"
+      ]
+    }
+  },
+  "degree_share_by_type": [
+    {
+      "hospital_group": "GHT-Atlantique",
+      "facility_type": "CENTRE_SANTE",
+      "max_share_received": 0.015,
+      "max_share_sent": 0.193
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "facility_type": "CHU",
+      "max_share_received": 0.23,
+      "max_share_sent": 0.069
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "facility_type": "CLINIQUE",
+      "max_share_received": 0.064,
+      "max_share_sent": 0.064
+    },
+    {
+      "hospital_group": "GHT-Atlantique",
+      "facility_type": "HOPITAL_REGIONAL",
+      "max_share_received": 0.144,
+      "max_share_sent": 0.106
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "facility_type": "CENTRE_SANTE",
+      "max_share_received": 0.013,
+      "max_share_sent": 0.053
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "facility_type": "CHU",
+      "max_share_received": 0.272,
+      "max_share_sent": 0.061
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "facility_type": "CLINIQUE",
+      "max_share_received": 0.046,
+      "max_share_sent": 0.087
+    },
+    {
+      "hospital_group": "GHT-Nord",
+      "facility_type": "HOPITAL_REGIONAL",
+      "max_share_received": 0.092,
+      "max_share_sent": 0.117
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "facility_type": "CENTRE_SANTE",
+      "max_share_received": 0.023,
+      "max_share_sent": 0.083
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "facility_type": "CHU",
+      "max_share_received": 0.327,
+      "max_share_sent": 0.086
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "facility_type": "CLINIQUE",
+      "max_share_received": 0.261,
+      "max_share_sent": 0.119
+    },
+    {
+      "hospital_group": "GHT-Sud",
+      "facility_type": "HOPITAL_REGIONAL",
+      "max_share_received": 0.139,
+      "max_share_sent": 0.172
+    }
+  ]
+}

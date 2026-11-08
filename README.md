@@ -175,6 +175,34 @@ Consulter les groupes à la main :
 docker compose exec kafka /opt/kafka/bin/kafka-consumer-groups.sh --bootstrap-server kafka:9092 --describe --group urgencenet-silver-suivi
 ```
 
+## Partie 6 : GraphFrames et GraphX
+
+Versions : Spark 3.5.7 et GraphX intégré, Scala 2.12.18, GraphFrames 0.8.4-spark3.5-s_2.12. Les trois étapes
+s'enchaînent dans cet ordre et lisent l'historique Silver de la Partie 3.
+
+1. Graphe, motifs, degrés, composantes et règles d'alerte avec GraphFrames. GraphFrames est ajouté par `--packages`,
+   module Python compris. `spark.jars.ivy` est nécessaire, car l'utilisateur `spark` de l'image n'a pas de répertoire
+   personnel.
+
+```bash
+docker compose exec jupyter spark-submit --driver-memory 2g --conf spark.jars.ivy=/home/spark/.ivy2 --packages graphframes:graphframes:0.8.4-spark3.5-s_2.12 --repositories https://repos.spark-packages.org spark/partie6_graphframes.py
+```
+
+2. Degrés, composantes connexes et PageRank pondéré par groupe hospitalier avec GraphX, en Scala :
+
+```bash
+docker compose exec jupyter spark-shell --master spark://spark-master:7077 --conf spark.cores.max=4 --conf spark.sql.shuffle.partitions=8 -i spark/partie6_graphx.scala
+```
+
+3. Comparaison des deux analyses, table de métriques par établissement et figure :
+
+```bash
+docker compose exec jupyter spark-submit spark/partie6_restitution.py
+```
+
+Les résultats sont écrits sous `lake/gold/graph_analysis/`, partitionnés par `hospital_group`. La figure est dans
+`rapport/captures/partie6_graphe_transferts.png`.
+
 ## Rapport
 
 `rapport/rapport_jalon1.pdf` se régénère avec la commande suivante, à lancer sous Windows depuis la racine du projet.

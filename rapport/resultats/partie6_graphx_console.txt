@@ -1,0 +1,10 @@
+Spark context Web UI available at http://jupyter:4040
+Spark context available as 'sc' (master = spark://spark-master:7077, app id = app-20261108142434-0004).
+Spark session available as 'spark'.
+[GRAPHX] sommets=6804 aretes=25831
+[GRAPHX] composantes connexes du graphe complet : 1 (4.14 s)
+[GRAPHX] degres du graphe des transferts : 1158 transferts (0.69 s)
+[GRAPHX] GHT-Atlantique : 14 etablissements, 108 liaisons, 1 composante(s), PageRank max : F-002 (CHU, 2.750), F-001 (CHU, 2.597), F-004 (HOPITAL_REGIONAL, 1.952) (15.97 s)
+[GRAPHX] GHT-Nord : 16 etablissements, 135 liaisons, 1 composante(s), PageRank max : F-015 (CHU, 3.198), F-025 (CHU, 3.050), F-016 (HOPITAL_REGIONAL, 1.691) (10.56 s)
+[GRAPHX] GHT-Sud : 10 etablissements, 68 liaisons, 1 composante(s), PageRank max : F-031 (CHU, 2.734), F-035 (CLINIQUE, 1.999), F-033 (HOPITAL_REGIONAL, 1.584) (7.37 s)
+[GRAPHX] resultats ecrits dans rapport/resultats/partie6_graphx.json
