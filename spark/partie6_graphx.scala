@@ -3,6 +3,7 @@
 // Lancement :
 //   docker compose exec jupyter spark-shell --master spark://spark-master:7077 \
 //       --conf spark.cores.max=4 --conf spark.sql.shuffle.partitions=8 -i spark/partie6_graphx.scala
+// Avec -e GRAPHX_HOLD=600 (docker compose exec), Spark UI reste ouverte 10 minutes a la fin.
 //
 // PageRank pondere : le graphe des transferts garde une arete par transfert. Dans le PageRank de GraphX, un sommet
 // envoie rang / degre sortant sur chaque arete : k aretes paralleles vers le meme etablissement lui apportent donc
@@ -127,4 +128,9 @@ object GraphXAnalysis extends Serializable {
 }
 
 GraphXAnalysis.run(spark)
+// GRAPHX_HOLD=600 garde Spark UI ouverte 10 minutes avant de quitter
+sys.env.get("GRAPHX_HOLD").map(_.toInt).filter(_ > 0).foreach { seconds =>
+  println(s"[GRAPHX] Spark UI disponible sur http://localhost:4040 pendant $seconds s")
+  Thread.sleep(seconds * 1000L)
+}
 System.exit(0)

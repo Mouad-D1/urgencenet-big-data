@@ -25,6 +25,11 @@ Captures : `captures/partie4_requetes_actives.jpg` (les 5 requêtes actives) et
 `captures/partie4_statistiques_watermark.jpg` (débit et lignes par micro-batch). Elles ont été prises pendant une
 première exécution identique, le 05/11/2026, et non pendant l'exécution de référence.
 
+Captures du sink console dans un terminal : `captures/partie4_console_zoom.png`,
+`captures/partie4_console_flux_brut.jpg` et `captures/partie4_console_microbatches.jpg`. Elles viennent d'une
+exécution de démonstration du 26/11/2026, relancée avec `--reset` : le checkpoint précédent pointait vers un topic
+recréé depuis, et Spark refusait de reprendre (`OffsetOutOfRangeException`).
+
 ## Micro-batches successifs en console
 
 Extrait de `resultats/partie4_console.txt`. Le flux brut en mode append n'affiche que les nouvelles lignes du batch,

@@ -97,6 +97,11 @@ totaliser le nombre de sommets du groupe.
 | GHT-Nord | 16 | 135 | 1 | F-015 CHU (3,20), F-025 CHU (3,05), F-016 HR (1,69) |
 | GHT-Sud | 10 | 68 | 1 | F-031 CHU (2,73), **F-035 clinique (2,00)**, F-033 HR (1,58) |
 
+Spark UI pendant les deux analyses : `captures/partie6_graphframes_spark_ui.jpg` et
+`captures/partie6_graphx_spark_ui.jpg`. Ces captures viennent d'une exécution de démonstration du 26/11/2026 (options
+`--hold` et `GRAPHX_HOLD`), qui redonne les mêmes résultats. Les fichiers de résultats sont ceux de l'exécution de
+référence.
+
 La table complète par établissement (degrés, transferts internes, partenaires en amont et en aval, parts du groupe,
 PageRank, composante, alertes) est dans `resultats/partie6_metriques_etablissements.csv` et dans
 `lake/gold/graph_analysis/metriques_etablissements/`. La figure `captures/partie6_graphe_transferts.png` représente les

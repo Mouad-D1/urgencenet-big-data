@@ -169,6 +169,13 @@ bash scripts/releve_consumer_groups.sh
 ```
 
 Le dernier script relève `kafka-consumer-groups.sh --describe` pendant l'arrêt, après la reprise et à la fin.
+
+Pendant que le pipeline tourne, la commande suivante affiche les derniers indicateurs Gold et l'historique Delta.
+Elle n'utilise qu'un cœur, pour laisser travailler le pipeline :
+
+```bash
+docker compose exec jupyter spark-submit spark/demo_gold.py
+```
 Consulter les groupes à la main :
 
 ```bash
@@ -205,12 +212,20 @@ Les résultats sont écrits sous `lake/gold/graph_analysis/`, partitionnés par 
 
 ## Rapport
 
-`rapport/rapport_jalon1.pdf` se régénère avec la commande suivante, à lancer sous Windows depuis la racine du projet.
-Elle utilise `reportlab` et `Pillow`, les polices Calibri et Consolas, et les chiffres de `rapport/resultats/`.
+Le rapport final (`rapport/rapport_final.pdf`, Parties 1 à 6) et celui du jalon 1 (`rapport/rapport_jalon1.pdf`) se
+régénèrent sous Windows depuis la racine du projet. Les scripts utilisent `reportlab` et `Pillow`, les polices Calibri
+et Consolas, la mise en forme commune de `rapport/pdf_style.py` et les chiffres de `rapport/resultats/`. Le script du
+rapport final s'arrête en erreur si le document dépasse 10 pages.
+
+```bash
+python rapport/build_rapport_final.py
+```
 
 ```bash
 python rapport/build_rapport.py
 ```
+
+Les notes détaillées de chaque partie sont dans `rapport/partie1.md` à `rapport/partie6.md`.
 
 ## Arrêt
 
@@ -227,6 +242,7 @@ docker-compose.yml        Kafka, Spark Master + 2 Workers, MinIO, mc, Jupyter
 docker/spark/             image Spark (jars, dépendances Python, spark-defaults.conf)
 producer.py               générateur d'événements (fichier ou Kafka)
 data/facilities.json      référentiel des établissements
-spark/                    traitements PySpark, un script par partie
-rapport/                  notes du rapport PDF, captures et résultats mesurés
+spark/                    traitements PySpark par partie, et l'analyse GraphX en Scala (partie6_graphx.scala)
+scripts/                  relevé des consumer groups Kafka (Partie 5)
+rapport/                  rapports PDF, notes par partie, captures et résultats mesurés
 ```

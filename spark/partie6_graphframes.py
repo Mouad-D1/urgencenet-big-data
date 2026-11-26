@@ -10,6 +10,7 @@ Lancement (ajoute le package GraphFrames, module Python compris) :
 Source : l'historique nettoye de la Partie 3 (lake/silver/urgences_history/). Le graphe est exporte en Parquet sous
 lake/gold/graph_analysis/graphe/ pour l'analyse GraphX en Scala (spark/partie6_graphx.scala).
 """
+import argparse
 import json
 import time
 from pathlib import Path
@@ -31,6 +32,10 @@ RESULTS_PATH = Path("rapport/resultats/partie6_graphframes.json")
 # Seuils explicites des regles d'alerte
 MIN_TRANSFERS_PER_PATIENT = 4
 MAX_SHARE_OF_GROUP = 0.20  # part des transferts du groupe recus (ou emis) par un etablissement qui n'est pas un CHU
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--hold", type=int, default=0, help="secondes pendant lesquelles garder Spark UI ouverte a la fin")
+args = parser.parse_args()
 
 spark = (
     SparkSession.builder
@@ -280,4 +285,7 @@ RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
 RESULTS_PATH.write_text(json.dumps(results, indent=2, ensure_ascii=False, default=str) + "\n", encoding="utf-8")
 print(json.dumps({k: v for k, v in results.items() if k not in ("alerts",)}, indent=2, ensure_ascii=False, default=str))
 print(f"\n{len(alert_rows)} alertes ; degres calcules pour {degree_rows} etablissements")
+if args.hold:
+    print(f"Spark UI disponible sur http://localhost:4040 pendant {args.hold} s", flush=True)
+    time.sleep(args.hold)
 spark.stop()

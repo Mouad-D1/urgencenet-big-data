@@ -5,6 +5,9 @@ data/anomalies_ground_truth.json
 # Sujet du projet
 BigDataminiProjectUrgenceMa.pdf
 
+# Notes personnelles de preparation a la soutenance
+rapport/soutenance.md
+
 .env
 .ipynb_checkpoints/
 __pycache__/
